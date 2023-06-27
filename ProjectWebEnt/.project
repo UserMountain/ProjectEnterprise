@@ -28,11 +28,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/main/webapp/picture/abtus.jpg</name>
-			<type>1</type>
-			<locationURI>PARENT-8-PROJECT_LOC/Desktop/Html/SE%20project/Dashboard/img/abtus.jpg</locationURI>
-		</link>
-	</linkedResources>
 </projectDescription>
