@@ -1,15 +1,20 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Project</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<title>Dashboard Project</title>
+
 
     <link rel="stylesheet" href="dash.css">
+
 </head>
 <body>
 
@@ -18,8 +23,8 @@
 
         <div>
             <ul id="navbar">
-                <li><a class="active" href="Nav_bar.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
+                <li><a href="Nav_bar.html">Home</a></li>
+                <li><a class="active" href="shop.html">Shop</a></li>
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="contact.html">Contact</a></li>
@@ -34,11 +39,9 @@
     </section>
 
 
-    <section id="product1" class="section-p1">
-        <h2>Our Collection</h2>
-        <p>Most Recent</p>
+    <section id="product1">
         <div class="pro-container">
-            <div class="pro">
+            <div class="pro" onclick="window.location.href='sproduct.html';">
                 <img src="picture/Product_1.png" alt="">
                 <div class="des">
                     <span>Superstrike</span>
@@ -179,12 +182,7 @@
             </div>
 
         </div>
-    </section>
-
-
-    <section id="product1" class="section-p1">
-        <h2>New Arrival</h2>
-        <p>High Quality Microfiber And New Design</p>
+    
         <div class="pro-container">
             <div class="pro">
                 <img src="picture/UITM_1.png" alt="">
