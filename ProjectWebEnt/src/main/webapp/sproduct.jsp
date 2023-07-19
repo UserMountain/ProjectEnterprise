@@ -44,8 +44,6 @@
  
  <form action = "shop.html" method = "get">       
     <section id="prodetails" class="section-p1">
-  
-   
     	<br>
         <div class="single-pro-image">
             <img src="picture/Product_1.png" width="100%" id="MainImg" alt="">

@@ -52,7 +52,7 @@
         %>
         
             <div class="pro" >
-                <img src="picture/Product_1.png" alt="">
+                <img src="picture/<%= product.getImage() %>" width="100%" id="MainImg" alt="">
                 <div class="des">
                     <span>Superstrike</span>
                     <h5><%= product.getProductName() %></h5>
@@ -65,10 +65,11 @@
                     </div>
                     <h4><%= product.getProductPrice() %></h4>
                 </div>
-                <form action="sproduct" method="get">
-                    <input type="hidden" name="productId" value="<%= product.getProductID() %>">
+                <form action="TestingDisplayProduct" method="get">
+                    <input type="hidden" name="productID" value="<%= product.getProductID() %>">
                     <input type="submit" value="View Details">
                 </form>
+                <a href="TestingDisplayProduct.jsp?productID=<%= product.getProductID() %>">View Details</a>
             </div>
              <%
             }
@@ -79,3 +80,4 @@
 
 </body>
 </html>
+

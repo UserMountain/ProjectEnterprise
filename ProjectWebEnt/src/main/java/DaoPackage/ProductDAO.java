@@ -24,7 +24,7 @@ public class ProductDAO {
                 String productCat = rs.getString("productCat");
                 double productPrice = rs.getDouble("productPrice");
                 String description = rs.getString("description");
-                String image = "images/" + rs.getString("image"); // Assuming the image filename is stored in the database.
+                String image = rs.getString("image"); // Assuming the image filename is stored in the database.
 
                 Product product = new Product(productID, productName, productCat, productPrice, description, image);
                 products.add(product);
@@ -34,5 +34,29 @@ public class ProductDAO {
         }
 
         return products;
+    }
+    
+    public Product getProductById(int productID) {
+        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+             PreparedStatement stmt = conn.prepareStatement("SELECT * FROM product WHERE productID = ?")) {
+
+            stmt.setInt(1, productID);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                int prodID = rs.getInt("productID");
+                String prodName = rs.getString("productName");
+                String prodCat = rs.getString("productCat");
+                double prodPrice = rs.getDouble("productPrice");
+                String desc = rs.getString("description");
+                String imag = rs.getString("image");
+
+                return new Product(prodID, prodName, prodCat, prodPrice, desc, imag);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return null; // Product not found
     }
 }
