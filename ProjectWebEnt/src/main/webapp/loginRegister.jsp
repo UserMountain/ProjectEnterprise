@@ -50,7 +50,7 @@
                 </div>
             </div>
         </div>
-        
+       
         <div class="logreg-box">
             <div class="form-box login">
                 <form action="UsersLogin" method="post">
@@ -60,7 +60,7 @@
                         <span class="icon">
                             <i class='bx bxs-envelope' ></i>
                         </span>
-                        <input type="email"  name="email-login" required>
+                        <input type="email" id="email" name="email" required>
                         <label>Email</label>
                     </div>
 
@@ -68,7 +68,7 @@
                         <span class="icon">
                             <i class='bx bxs-lock-alt' ></i>
                         </span>
-                        <input type="password"  name="password-login" required>
+                        <input type="password" id="password" name="password" required>
                         <label>Password</label>
                     </div>
 
@@ -96,7 +96,7 @@
                         <span class="icon">
                             <i class='bx bxs-user' ></i>
                         </span>
-                        <input type="text" required>
+                        <input type="text" id="name" name="name" required>
                         <label>Name</label>
                     </div>
 
@@ -104,7 +104,7 @@
                         <span class="icon">
                             <i class='bx bxs-envelope' ></i>
                         </span>
-                        <input type="email" name="name" required>
+                        <input type="email" id="email" name="email" required>
                         <label>Email</label>
                     </div>
 
@@ -112,7 +112,7 @@
                         <span class="icon">
                             <i class='bx bxs-lock-alt' ></i>
                         </span>
-                        <input type="password" name="password" required>
+                        <input type="password" id="password" name="password" required>
                         <label>Password</label>
                     </div>
 
@@ -121,14 +121,12 @@
                         
                     </div>
 
-                    <button type="submit" class="btn">Sign Up</button>
+                    <button type="submit" value="Register" class="btn">Sign Up</button>
 
                     <div  class="login-register">
                         <p>Already have an account?<a href="#" class="login-link">
                             Sign In</a></p>
                     </div>
-
-
                 </form>
             </div>
         </div>
