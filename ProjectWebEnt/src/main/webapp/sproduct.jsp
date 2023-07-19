@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Project</title>
+    <title>Choose Product</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
@@ -14,6 +14,17 @@
     <link rel="stylesheet" href="dash.css">
 
 </head>
+<%String value1 = request.getParameter("Product_1"); %>
+<%String value2 = request.getParameter("Product_2"); %>
+<%String value3 = request.getParameter("Product_3"); %>
+<%String value4 = request.getParameter("Product_4"); %>
+<%String value5 = request.getParameter("Product_5"); %>
+<%String value6 = request.getParameter("Product_6"); %>
+<%String value7 = request.getParameter("Product_7"); %>
+<%String value8 = request.getParameter("Selangor_1"); %>
+<%String value9 = request.getParameter("UITM_1"); %>
+<%String value10 = request.getParameter("UITM_2"); %>
+
 <body>
 
     <section id="header">
@@ -30,8 +41,15 @@
             </ul>
         </div>
     </section>
-        
+ 
+ <form action = "shop.html" method = "get">       
     <section id="prodetails" class="section-p1">
+    <%if(value1 == null)
+    	value1 = "no";%>
+    	
+    <%if(value1.equals("yes"))
+    	{ %>
+    	<br>
         <div class="single-pro-image">
             <img src="picture/Product_1.png" width="100%" id="MainImg" alt="">
         </div>
@@ -39,19 +57,131 @@
             <h6>Home/T-Shirt</h6>
             <h4>Jersey</h4>
             <h2>RM 50.00</h2>
-            <select>
-                <option>Select Size</option>
-                <option>L/option>
-                <option>M</option>
-                <option>S</option>
+            <h6>Size: </h6><select id=Product_1Size>
                 <option>XS</option>
+                <option>S>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
             </select>
-            <input type="number" value="1">
+           <h6>Quantity: </h6><select id=Product_1Quantity>
+                <option>1</option>
+                <option>2></option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
             <button class="normal">Add To Cart</button>
             <h4>Product Details</h4>
             <span>The power of the god. This shirt is suitable in war situation!</span>
         </div>
     </section>
+    
+    
+    
+    <%if(value2 == null)
+    	value2 = "no";%>
+    	
+    <%if(value2.equals("yes"))
+    	{ %>
+    	<br>
+        <div class="single-pro-image">
+            <img src="picture/Product_2.png" width="100%" id="MainImg" alt="">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home/T-Shirt</h6>
+            <h4>Jersey</h4>
+            <h2>RM 50.00</h2>
+            <h6>Size: </h6><select id=Product_2Size>
+                <option>XS</option>
+                <option>S>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+            </select>
+           <h6>Quantity: </h6><select id=Product_2Quantity>
+                <option>1</option>
+                <option>2>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <button class="normal">Add To Cart</button>
+            <h4>Product Details</h4>
+            <span>The power of the god. This shirt is suitable in war situation!</span>
+        </div>
+        
+        
+	<%if(value3 == null)
+    	value3 = "no";%>
+    	
+    <%if(value3.equals("yes"))
+    	{ %>
+    	<br>
+        <div class="single-pro-image">
+            <img src="picture/Product_3.png" width="100%" id="MainImg" alt="">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home/T-Shirt</h6>
+            <h4>Jersey</h4>
+            <h2>RM 50.00</h2>
+            <h6>Size: </h6><select id=Product_3Size>
+                <option>XS</option>
+                <option>S>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+            </select>
+           <h6>Quantity: </h6><select id=Product_3Quantity>
+                <option>1</option>
+                <option>2>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <button class="normal">Add To Cart</button>
+            <h4>Product Details</h4>
+            <span>The power of the god. This shirt is suitable in war situation!</span>
+        </div>
+    
+    
+    <%if(value4 == null)
+    	value4 = "no";%>
+    	
+    <%if(value4.equals("yes"))
+    	{ %>
+    	<br>
+        <div class="single-pro-image">
+            <img src="picture/Product_4.png" width="100%" id="MainImg" alt="">
+        </div>
+        <div class="single-pro-details">
+            <h6>Home/T-Shirt</h6>
+            <h4>Jersey</h4>
+            <h2>RM 50.00</h2>
+            <h6>Size: </h6><select id=Product_4Size>
+                <option>XS</option>
+                <option>S>
+                <option>M</option>
+                <option>L</option>
+                <option>XL</option>
+            </select>
+           <h6>Quantity: </h6><select id=Product_4Quantity>
+                <option>1</option>
+                <option>2>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+            <button class="normal">Add To Cart</button>
+            <h4>Product Details</h4>
+            <span>The power of the god. This shirt is suitable in war situation!</span>
+        </div>
+        
+        
+	
+    
+</form>
+
 
     <section id="product1" class="section-p1">
         <h2>UITM Collabration</h2>
