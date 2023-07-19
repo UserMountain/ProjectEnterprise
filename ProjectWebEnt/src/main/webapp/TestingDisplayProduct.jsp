@@ -2,6 +2,8 @@
 <%@ page import="EntPackage.*" %>
 <%@ page import="DaoPackage.ProductDAO" %>
 <%@page import="java.util.List"%>
+<%@ page import="java.util.ArrayList" %>
+<%@ page import="java.sql.*" %>
 
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
@@ -72,13 +74,17 @@
                 <option>4</option>
                 <option>5</option>
             </select>
-            <button class="normal">Add To Cart</button>
+            
+            <form action="addToCart" method="post">
+                    <input type="hidden" name="productID" value="<%= selectedProduct.getProductID() %>">
+        			<input type="number" name="quantity" value="2" min="1">
+                    <button type="submit" class="normal" name="addToCart" >Add To Cart</button>
+                </form>
             <h4>Product Details</h4>
             <span><%= selectedProduct.getDescription() %></span>
         </div>
     </section>
-    
-    
+   
     <%
         } else {
     %>

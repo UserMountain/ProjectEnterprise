@@ -46,7 +46,7 @@
         
         <%
        	ProductDAO productDAO = new ProductDAO();
-         List<Product> products = productDAO.getAllProducts();
+        List<Product> products = productDAO.getAllProducts();
 
          for (Product product : products) {
         %>
