@@ -44,11 +44,8 @@
  
  <form action = "shop.html" method = "get">       
     <section id="prodetails" class="section-p1">
-    <%if(value1 == null)
-    	value1 = "no";%>
-    	
-    <%if(value1.equals("yes"))
-    	{ %>
+  
+   
     	<br>
         <div class="single-pro-image">
             <img src="picture/Product_1.png" width="100%" id="MainImg" alt="">
@@ -77,107 +74,7 @@
         </div>
     </section>
     
-    
-    
-    <%if(value2 == null)
-    	value2 = "no";%>
-    	
-    <%if(value2.equals("yes"))
-    	{ %>
-    	<br>
-        <div class="single-pro-image">
-            <img src="picture/Product_2.png" width="100%" id="MainImg" alt="">
-        </div>
-        <div class="single-pro-details">
-            <h6>Home/T-Shirt</h6>
-            <h4>Jersey</h4>
-            <h2>RM 50.00</h2>
-            <h6>Size: </h6><select id=Product_2Size>
-                <option>XS</option>
-                <option>S>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-            </select>
-           <h6>Quantity: </h6><select id=Product_2Quantity>
-                <option>1</option>
-                <option>2>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            <button class="normal">Add To Cart</button>
-            <h4>Product Details</h4>
-            <span>The power of the god. This shirt is suitable in war situation!</span>
-        </div>
-        
-        
-	<%if(value3 == null)
-    	value3 = "no";%>
-    	
-    <%if(value3.equals("yes"))
-    	{ %>
-    	<br>
-        <div class="single-pro-image">
-            <img src="picture/Product_3.png" width="100%" id="MainImg" alt="">
-        </div>
-        <div class="single-pro-details">
-            <h6>Home/T-Shirt</h6>
-            <h4>Jersey</h4>
-            <h2>RM 50.00</h2>
-            <h6>Size: </h6><select id=Product_3Size>
-                <option>XS</option>
-                <option>S>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-            </select>
-           <h6>Quantity: </h6><select id=Product_3Quantity>
-                <option>1</option>
-                <option>2>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            <button class="normal">Add To Cart</button>
-            <h4>Product Details</h4>
-            <span>The power of the god. This shirt is suitable in war situation!</span>
-        </div>
-    
-    
-    <%if(value4 == null)
-    	value4 = "no";%>
-    	
-    <%if(value4.equals("yes"))
-    	{ %>
-    	<br>
-        <div class="single-pro-image">
-            <img src="picture/Product_4.png" width="100%" id="MainImg" alt="">
-        </div>
-        <div class="single-pro-details">
-            <h6>Home/T-Shirt</h6>
-            <h4>Jersey</h4>
-            <h2>RM 50.00</h2>
-            <h6>Size: </h6><select id=Product_4Size>
-                <option>XS</option>
-                <option>S>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-            </select>
-           <h6>Quantity: </h6><select id=Product_4Quantity>
-                <option>1</option>
-                <option>2>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            <button class="normal">Add To Cart</button>
-            <h4>Product Details</h4>
-            <span>The power of the god. This shirt is suitable in war situation!</span>
-        </div>
-        
-        
+  
 	
     
 </form>

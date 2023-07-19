@@ -37,15 +37,23 @@
     <section id="home">
         <a href="#"><img src="picture/home.jpg" class="logo" alt=""></a>
     </section>
-
-
+    
+<%@ page import="EntPackage.Product" %>
+<%
+List<Product> products = new ArrayList<>();
+            products.add(new Product(1, "Product A", "AA", 19.99));
+            products.add(new Product(2, "Product B", "BB", 24.99));
+            products.add(new Product(3, "Product C", "CC", 14.99));
+           
+            for(Product product : products){
+            %>
     <section id="product1">
         <div class="pro-container">
-            <div class="pro" onclick="window.location.href='sproduct.html';">
+            <div class="pro" >
                 <img src="picture/Product_1.png" alt="">
                 <div class="des">
                     <span>Superstrike</span>
-                    <h5>Jersey</h5>
+                    <h5><%= product.getProductName() %></h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -53,16 +61,20 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM50</h4>
+                    <h4><%= product.getProductPrice() %></h4>
                 </div>
+                <form action="sproduct" method="get">
+                    <input type="hidden" name="productId" value="<%= product.getProductID() %>">
+                    <input type="submit" value="View Details">
+                </form>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
 
-            <div class="pro">
+            <div class="pro" >
                 <img src="picture/Product_2.png" alt="">
                 <div class="des">
                     <span>Superstrike</span>
-                    <h5>Jersey</h5>
+                    <h5><%= product.getProductName() %></h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -70,10 +82,19 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM50</h4>
+                    <h4><%= product.getProductPrice() %></h4>
+                    
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
+                <form action="sproduct" method="get">
+                	<input type="hidden" name="productId" value="<%= product.getProductID() %>">
+                	<input type="submit" value="View Details">
+                </form>
             </div>
+            
+            <%
+            	}
+            %>
 
             <div class="pro">
                 <img src="picture/Product_3.png" alt="">
@@ -88,6 +109,7 @@
                         <i class='bx bx-star'></i>
                     </div>
                     <h4>RM50</h4>
+          
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>

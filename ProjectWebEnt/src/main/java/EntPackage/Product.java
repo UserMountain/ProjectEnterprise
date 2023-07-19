@@ -1,49 +1,63 @@
 package EntPackage;
 
 public class Product {
-	private String name;
-	private String category;
-	private Double price;
-	private String size;
-	
+	private int productID;
+	private String productName;
+	private String productCat;
+	private Double productPrice;
+	private String description;
+	private String image;
 	
 	public Product() {
 	}
 
 	
-	public Product(String name, String category, Double price, String image) {
+	public Product(int productID, String productName, String productCat, Double productPrice, String description, String image) {
 		super();
-		this.name = name;
-		this.category = category;
-		this.price = price;
-	}
-
-	public String getName() {
-		return name;
-	}
-	public String getCategory() {
-		return category;
-	}
-	public Double getPrice() {
-		return price;
-	}
-	public String getSize() {
-		return size;
+		this.productID = productID;
+		this.productName = productName;
+		this.productCat = productCat;
+		this.productPrice = productPrice;
+		this.description = description;
+		this.image = image;
 	}
 	
-
+	public int getProductID() {
+		return productID;
+	}
+	public String getProductName() {
+		return productName;
+	}
+	public String getProductCat() {
+		return productCat;
+	}
+	public Double getProductPrice() {
+		return productPrice;
+	}
+	public String getDescription() {
+		return description;
+	}
+	public String getImage() {
+		return image;
+	}
 	
-	public void setName(String name) {
-		this.name = name;
+	public void setProductID(int productID) {
+		this.productID = productID;
 	}
-	public void setCategory(String category) {
-		this.category = category;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
-	public void setPrice(Double price) {
-		this.price = price;
+	public void setProductCat(String productCat) {
+		this.productCat = productCat;
 	}
-	public void setSize(String size) {
-		this.size = size;
+	public void setProductPrice(Double productPrice) {
+		this.productPrice = productPrice;
+	}
+	public void setDescription(String description) {
+		this.description = description;
+	}
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	
