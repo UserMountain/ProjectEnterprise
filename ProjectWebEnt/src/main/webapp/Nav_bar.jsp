@@ -36,6 +36,81 @@
     </section>
 
 
+
+    <section id="product1" class="section-p1">
+        <h2>New Arrival</h2>
+        <p>High Quality Microfiber And New Design</p>
+        <div class="pro-container">
+        
+            <div class="proDummy">
+            </div>
+
+            <div class="pro">
+                <img src="picture/UITM_1.png" alt="">
+                <div class="des">
+                    <span>Shirt</span>
+                    <h5>UiTM Purple Grand T-Shirt</h5>
+                    <div class="star">
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                    </div>
+                    <h4>RM 76.00</h4>
+                </div>
+                <a href="#"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            
+              <div class="pro">
+                <img src="picture/UITM_2.png" alt="">
+                <div class="des">
+                    <span>Shirt</span>
+                    <h5>UiTM Black Grand T-Shirt</h5>
+                    <div class="star">
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                    </div>
+                    <h4>RM 76.00</h4>
+                </div>
+                <a href="#"><i class='bx bx-cart-alt cart'></i></a>
+            </div>
+            
+               <div class="proDummy">
+           	   </div>
+        </div>
+    </section>
+    
+     
+    <section>
+     <div class="pro-container\\">
+        
+       
+       <div class="contain">
+      <div class="boxes">
+        <img src="picture/Promo 1.jpg">
+      </div>
+       </div>
+       
+        <div class="contain">
+      <div class="boxes">
+        <img src="picture/1. SIZE CHART.jpg">
+      </div>
+       </div>
+       
+        <div class="contain">
+      <div class="boxes">
+        <img src="picture/Promo 2.jpg">
+      </div>
+       </div>
+       
+       
+        </div>
+    </section>
+
     <section id="product1" class="section-p1">
         <h2>Our Collection</h2>
         <p>Most Recent</p>
@@ -43,8 +118,8 @@
             <div class="pro">
                 <img src="picture/Product_1.png" alt="">
                 <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
+                    <span>T-Shirt</span>
+                    <h5>Black Viper</h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -52,7 +127,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM50</h4>
+                    <h4>RM 49.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -60,8 +135,8 @@
             <div class="pro">
                 <img src="picture/Product_2.png" alt="">
                 <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
+                     <span>T-Shirt</span>
+                    <h5>Saphalora</h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -69,7 +144,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM50</h4>
+                    <h4>RM 49.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -77,8 +152,8 @@
             <div class="pro">
                 <img src="picture/Product_3.png" alt="">
                 <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
+                    <span>T-Shirt</span>
+                    <h5>Zealous</h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -86,7 +161,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM50</h4>
+                    <h4>RM 49.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -95,8 +170,8 @@
             <div class="pro">
                 <img src="picture/Product_4.png" alt="">
                 <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
+                    <span>T-Shirt</span>
+                    <h5>White Flora</h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -104,7 +179,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM50</h4>
+                    <h4>RM 49.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -113,8 +188,8 @@
             <div class="pro">
                 <img src="picture/Product_5.png" alt="">
                 <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
+                     <span>T-Shirt</span>
+                    <h5>Zylo</h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -122,7 +197,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM50</h4>
+                    <h4>RM 49.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -131,8 +206,8 @@
             <div class="pro">
                 <img src="picture/Product_6.png" alt="">
                 <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
+                    <span>T-Shirt</span>
+                    <h5>Black Flora</h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -140,7 +215,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM50</h4>
+                    <h4>RM 49.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -149,8 +224,8 @@
             <div class="pro">
                 <img src="picture/Product_7.png" alt="">
                 <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
+                    <span>T-Shirt</span>
+                    <h5>UiTM Mendonia Tee</h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -158,7 +233,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM50</h4>
+                    <h4>RM 49.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -166,8 +241,8 @@
             <div class="pro">
                 <img src="picture/Selangor_1.png" alt="">
                 <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
+                    <span>Shirt</span>
+                    <h5>Selangor Grand Tee</h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -175,49 +250,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM50</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart-alt cart'></i></a>
-            </div>
-
-        </div>
-    </section>
-
-
-    <section id="product1" class="section-p1">
-        <h2>New Arrival</h2>
-        <p>High Quality Microfiber And New Design</p>
-        <div class="pro-container">
-            <div class="pro">
-                <img src="picture/UITM_1.png" alt="">
-                <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
-                    <div class="star">
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                    </div>
-                    <h4>RM50</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart-alt cart'></i></a>
-            </div>
-
-            <div class="pro">
-                <img src="picture/UITM_2.png" alt="">
-                <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
-                    <div class="star">
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                    </div>
-                    <h4>RM50</h4>
+                    <h4>RM 70.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -257,11 +290,11 @@
         </div>
 
         <div class="col">
-            <h4>Company</h4>
-            <a href="#">About Us</a>
-            <a href="#">Blog</a>
+             <h4>Company</h4>
+            <a href="about.html">About Us</a>
+           	<a href="blog.html">Blog</a>
             <a href="#">Privacy Policy</a>
-            <a href="#">Contact Us</a>
+            <a href="contact.html">Contact Us</a>
         </div>
 
         <div class="col install">

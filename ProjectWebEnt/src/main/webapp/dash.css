@@ -118,10 +118,37 @@ body {
 }
 
 #product1 .pro-container {
+	
+    margin-bottom: 50px;
+    text-align: center;
+    margin-right: 2%;
+    margin-left: 2%;
+    transition: transform 0.2s ease-in-out;
     display: flex;
     justify-content: space-between;
     padding-top: 20px;
     flex-wrap: wrap;
+    
+}
+pro-contain {
+	
+    
+    text-align: center;
+    
+    display: flex;
+    padding-top: 20px;
+    flex-wrap: wrap;
+    
+}
+
+#product1 .proDummy {
+    width: 23%;
+    min-width: 250px;
+    padding: 10px 12px;
+    border-radius: 25px;
+    cursor: pointer;
+    margin: 15px 0;
+    position: relative;
 }
 
 #product1 .pro {
@@ -319,3 +346,32 @@ footer a {
 #prodetails .single-pro-details span {
     line-height: 25px;
 }
+
+
+    .contain {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+  
+  .boxes {
+    width: 30%;
+    margin-bottom: 100px;
+    text-align: center;
+    margin: 0 2%;
+    transition: transform 0.2s ease-in-out;
+  }
+
+  .boxes:hover {
+    transform: scale(1.05);
+  }
+
+  .boxes img {
+    max-width: 90%;
+    height: auto;
+    border-radius: 5%;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.5);
+  }
