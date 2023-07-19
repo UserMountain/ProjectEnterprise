@@ -37,7 +37,7 @@ public class UsersLogin extends HttpServlet {
 
             if (result.next()) {
                 // Login successful
-                response.sendRedirect("shop.jsp");
+                response.sendRedirect("TestingShop.jsp");
             } else {
                 // Login failed
                 response.sendRedirect("loginRegister.jsp");

@@ -40,15 +40,17 @@
     <section id="home">
         <a href="#"><img src="picture/home.jpg" class="logo" alt=""></a>
     </section>
-
-    <%
-         ProductDAO productDAO = new ProductDAO();
+		
+		<section id="product1">
+        <div class="pro-container">
+        
+        <%
+       	ProductDAO productDAO = new ProductDAO();
          List<Product> products = productDAO.getAllProducts();
 
          for (Product product : products) {
         %>
-        <section id="product1">
-        <div class="pro-container">
+        
             <div class="pro" >
                 <img src="picture/Product_1.png" alt="">
                 <div class="des">
@@ -68,13 +70,12 @@
                     <input type="submit" value="View Details">
                 </form>
             </div>
+             <%
+            }
+        %>
 		</div>
         </section>
         
-   
-        <%
-            }
-        %>
-    </table>
+
 </body>
 </html>
