@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="DaoPackage.CartItemDAO" %>
-<%@ page import="EntPackage.Cart" %>
-<%@ page import="java.util.List" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.PreparedStatement" %>
+<%@ page import="java.sql.ResultSet" %>
 
 
 <!DOCTYPE html>
@@ -57,26 +58,44 @@
                 </tr>
             </thead>
             <tbody>
-            <% CartItemDAO cartItemDAO = new CartItemDAO();
-           List<Cart> cartItems = cartItemDAO.getAllCartItems();
-           for (Cart cartItem : cartItems) { %>
-           
-                <tr>
-                     <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="picture/Product_1.png" alt=""></td>
-                    <td><%= cartItem.getProductName() %></td>
-                    <td><%= cartItem.getProductID() %></td>
-                    <td><input type="number" value="1" min="1"></td>
-                    <td>RM110.00</td>
-                </tr>
-                <% } %>
+            <% 
+            // Replace this with the actual product ID for which you want to display cart items
+
+            // Format for displaying currency values
+            java.text.DecimalFormat df = new java.text.DecimalFormat("#0.00");
+
+            // Database connection parameters
+            String dbUrl = "jdbc:mysql://localhost:3306/users_register";
+            String dbUser = "root";
+            String dbPassword = "root";
+			int productID = 1004;
+            try {
+                // Establish database connection
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
+
+                // Retrieve cart items from the database
+                String sql = "SELECT * FROM cartItems WHERE productID = ?";
+                PreparedStatement pstmt = conn.prepareStatement(sql);
+                
+                pstmt.setInt(1, productID);
+                ResultSet rs = pstmt.executeQuery();
+
+                // Iterate through the cart items and display them in the table
+                while (rs.next()) {
+                	productID = rs.getInt("productID");
+                    int cartID = rs.getInt("cartID");
+                    String size = rs.getString("size");
+                    int quantity = rs.getInt("quantity");
+                    double subTotal = rs.getDouble("subTotal");
+        %>
                 <tr>
                      <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
                     <td><img src="picture/Product_5.png" alt=""></td>
-                    <td>Red Dark Beam Shirt</td>
-                    <td>RM50.00</td>
+                    <td><%= size %></td>
+                    <td><%= quantity %></td>
                     <td><input type="number" value="1" min="1"></td>
-                    <td>RM50.00</td>
+                    <td>RM<%= df.format(subTotal) %></td>
                 </tr>
                 <tr>
                      <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
@@ -94,6 +113,16 @@
                     <td><input type="number" value="1" min="1"></td>
                     <td>RM65.00</td>
                 </tr>
+                
+                <% 
+                }
+                rs.close();
+                pstmt.close();
+                conn.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        %>
       
             </tbody>
             

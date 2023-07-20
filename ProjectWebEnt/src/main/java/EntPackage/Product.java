@@ -4,7 +4,7 @@ public class Product {
 	private int productID;
 	private String productName;
 	private double productPrice;
-	private String productCat;
+	private String productCategory;
 	private String productDesc;
 	private String productImage;
 	
@@ -12,12 +12,12 @@ public class Product {
 	}
 
 	
-	public Product(int productID, String productName, double productPrice, String productCat, String productDesc, String productImage) {
+	public Product(int productID, String productName, double productPrice, String productCategory, String productDesc, String productImage) {
 		super();
 		this.productID = productID;
 		this.productName = productName;
 		this.productPrice = productPrice;
-		this.productCat = productCat;
+		this.productCategory = productCategory;
 		this.productDesc = productDesc;
 		this.productImage = productImage;
 	}
@@ -31,10 +31,10 @@ public class Product {
 	public double getProductPrice() {
 		return productPrice;
 	}
-	public String getProductCat() {
-		return productCat;
+	public String getProductCategory() {
+		return productCategory;
 	}
-	public String getProductDescription() {
+	public String getProductDesc() {
 		return productDesc;
 	}
 	public String getProductImage() {
@@ -52,8 +52,8 @@ public class Product {
 	public void setProductPrice(double productPrice) {
 		this.productPrice = productPrice;
 	}
-	public void setProductCat(String productCat) {
-		this.productCat = productCat;
+	public void setProductCategory(String productCategory) {
+		this.productCategory = productCategory;
 	}
 	public void setProductDescription(String prodcutDesc) {
 		this.productDesc = prodcutDesc;

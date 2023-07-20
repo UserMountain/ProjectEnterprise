@@ -15,9 +15,9 @@ public class UserRegistration extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String userName = request.getParameter("userName");
+        String userEmail = request.getParameter("userEmail");
+        String userPassword = request.getParameter("userPassword");
 
         try {
             // Update the database connection details accordingly
@@ -32,11 +32,11 @@ public class UserRegistration extends HttpServlet {
             Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
 
             // Prepare the SQL statement
-            String sql = "INSERT INTO users (name, email, password) VALUES (?, ?, ?)";
+            String sql = "INSERT INTO customer (userName, userEmail, userPassword) VALUES (?, ?, ?)";
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, name);
-            statement.setString(2, email);
-            statement.setString(3, password);
+            statement.setString(1, userName);
+            statement.setString(2, userEmail);
+            statement.setString(3, userPassword);
 
             // Execute the statement
             int rowsInserted = statement.executeUpdate();
@@ -45,7 +45,7 @@ public class UserRegistration extends HttpServlet {
 
             // Redirect to a success page after successful registration
             if (rowsInserted > 0) {
-                response.sendRedirect("shop.jsp");
+                response.sendRedirect("TestingShop.jsp");
             } else {
                 response.sendRedirect("loginRegister.jsp");
             }

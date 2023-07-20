@@ -22,11 +22,11 @@ public class ProductDAO {
                 int productID = rs.getInt("productID");
                 String productName = rs.getString("productName");
                 double productPrice = rs.getDouble("productPrice");
-                String productCat = rs.getString("productCat");
+                String productCategory = rs.getString("productCategory");
                 String productDesc = rs.getString("productDesc");
                 String productImage = rs.getString("productImage"); // Assuming the image filename is stored in the database.
 
-                Product product = new Product(productID, productName, productPrice, productCat, productDesc, productImage);
+                Product product = new Product(productID, productName, productPrice, productCategory, productDesc, productImage);
                 products.add(product);
             }
         } catch (SQLException e) {
@@ -47,11 +47,11 @@ public class ProductDAO {
                 int prodID = rs.getInt("productID");
                 String prodName = rs.getString("productName");
                 double prodPrice = rs.getDouble("productPrice");
-                String prodCat = rs.getString("productCat");
+                String prodCategory = rs.getString("productCategory");
                 String prodDesc = rs.getString("productDesc");
                 String prodImage = rs.getString("productImage");
 
-                return new Product(prodID, prodName, prodPrice, prodCat, prodDesc, prodImage);
+                return new Product(prodID, prodName, prodPrice, prodCategory, prodDesc, prodImage);
             }
         } catch (SQLException e) {
             e.printStackTrace();

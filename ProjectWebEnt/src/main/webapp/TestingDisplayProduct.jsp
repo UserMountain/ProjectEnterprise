@@ -54,20 +54,23 @@
     <section id="prodetails" class="section-p1">
     	<br>
         <div class="single-pro-image">
-            <img src="picture/<%= selectedProduct.getImage() %>" width="100%" id="MainImg" alt="">
+            <img src="picture/<%= selectedProduct.getProductImage() %>" width="100%" id="MainImg" alt="">
         </div>
         <div class="single-pro-details">
+        
+        <form action="addToCart" method="post">
+        
             <h6>Home/T-Shirt</h6>
             <h4><%= selectedProduct.getProductName() %></h4>
             <h2>RM<%= selectedProduct.getProductPrice() %></h2>
-            <h6>Size: </h6><select id=Product_1Size>
+            <h6>Size: </h6><select name="size">
                 <option>XS</option>
                 <option>S>
                 <option>M</option>
                 <option>L</option>
                 <option>XL</option>
             </select>
-           <h6>Quantity: </h6><select id=Product_1Quantity>
+           <h6>Quantity: </h6><select name="quantity">
                 <option>1</option>
                 <option>2></option>
                 <option>3</option>
@@ -75,13 +78,13 @@
                 <option>5</option>
             </select>
             
-            <form action="addToCart" method="post">
                     <input type="hidden" name="productID" value="<%= selectedProduct.getProductID() %>">
-        			<input type="number" name="quantity" value="2" min="1">
+                    <input type="hidden" name="productImage" value="<%= selectedProduct.getProductImage() %>">
+                    <input type="hidden" name="productPrice" value="<%= selectedProduct.getProductPrice() %>">
                     <button type="submit" class="normal" name="addToCart" >Add To Cart</button>
                 </form>
             <h4>Product Details</h4>
-            <span><%= selectedProduct.getDescription() %></span>
+            <span><%= selectedProduct.getProductDesc() %></span>
         </div>
     </section>
    

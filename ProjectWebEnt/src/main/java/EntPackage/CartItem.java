@@ -21,7 +21,7 @@ public class CartItem {
 	public int getProductID() {
 		return productID;
 	}
-	public double getCartID() {
+	public int getCartID() {
 		return cartID;
 	}
 	public String getSize() {

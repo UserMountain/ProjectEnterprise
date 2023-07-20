@@ -60,7 +60,7 @@
                         <span class="icon">
                             <i class='bx bxs-envelope' ></i>
                         </span>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="userEmail" name="userEmail" required>
                         <label>Email</label>
                     </div>
 
@@ -68,7 +68,7 @@
                         <span class="icon">
                             <i class='bx bxs-lock-alt' ></i>
                         </span>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="userPassword" name="userPassword" required>
                         <label>Password</label>
                     </div>
 
@@ -96,7 +96,7 @@
                         <span class="icon">
                             <i class='bx bxs-user' ></i>
                         </span>
-                        <input type="text" id="name" name="name" required>
+                        <input type="text" id="userName" name="userName" required>
                         <label>Name</label>
                     </div>
 
@@ -104,7 +104,7 @@
                         <span class="icon">
                             <i class='bx bxs-envelope' ></i>
                         </span>
-                        <input type="email" id="email" name="email" required>
+                        <input type="email" id="userEmail" name="userEmail" required>
                         <label>Email</label>
                     </div>
 
@@ -112,7 +112,7 @@
                         <span class="icon">
                             <i class='bx bxs-lock-alt' ></i>
                         </span>
-                        <input type="password" id="password" name="password" required>
+                        <input type="password" id="userPassword" name="userPassword" required>
                         <label>Password</label>
                     </div>
 

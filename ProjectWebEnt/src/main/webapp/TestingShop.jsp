@@ -50,9 +50,8 @@
 
          for (Product product : products) {
         %>
-        
             <div class="pro" >
-                <img src="picture/<%= product.getImage() %>" width="100%" id="MainImg" alt="">
+                <img src="picture/<%= product.getProductImage() %>" width="100%" id="MainImg" alt="">
                 <div class="des">
                     <span>Superstrike</span>
                     <h5><%= product.getProductName() %></h5>
@@ -67,9 +66,11 @@
                 </div>
                 <form action="TestingDisplayProduct" method="get">
                     <input type="hidden" name="productID" value="<%= product.getProductID() %>">
+                    <input type="hidden" name="userID" value="<%= request.getParameter("userID") %>">
                     <input type="submit" value="View Details">
+
                 </form>
-                <a href="TestingDisplayProduct.jsp?productID=<%= product.getProductID() %>">View Details</a>
+                <a href="TestingDisplayProduct.jsp?productID=<%=product.getProductID()%>&productName<%=product.getProductName()%>&productPrice<%=product.getProductPrice()%>&productCategory<%=product.getProductCategory()%>&productDesc<%=product.getProductDesc()%>&productImage<%=product.getProductImage()%>">View Details</a>
             </div>
              <%
             }
