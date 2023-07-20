@@ -21,12 +21,12 @@ public class ProductDAO {
             while (rs.next()) {
                 int productID = rs.getInt("productID");
                 String productName = rs.getString("productName");
-                String productCat = rs.getString("productCat");
                 double productPrice = rs.getDouble("productPrice");
-                String description = rs.getString("description");
-                String image = rs.getString("image"); // Assuming the image filename is stored in the database.
+                String productCat = rs.getString("productCat");
+                String productDesc = rs.getString("productDesc");
+                String productImage = rs.getString("productImage"); // Assuming the image filename is stored in the database.
 
-                Product product = new Product(productID, productName, productCat, productPrice, description, image);
+                Product product = new Product(productID, productName, productPrice, productCat, productDesc, productImage);
                 products.add(product);
             }
         } catch (SQLException e) {
@@ -46,12 +46,12 @@ public class ProductDAO {
             if (rs.next()) {
                 int prodID = rs.getInt("productID");
                 String prodName = rs.getString("productName");
-                String prodCat = rs.getString("productCat");
                 double prodPrice = rs.getDouble("productPrice");
-                String desc = rs.getString("description");
-                String imag = rs.getString("image");
+                String prodCat = rs.getString("productCat");
+                String prodDesc = rs.getString("productDesc");
+                String prodImage = rs.getString("productImage");
 
-                return new Product(prodID, prodName, prodCat, prodPrice, desc, imag);
+                return new Product(prodID, prodName, prodPrice, prodCat, prodDesc, prodImage);
             }
         } catch (SQLException e) {
             e.printStackTrace();

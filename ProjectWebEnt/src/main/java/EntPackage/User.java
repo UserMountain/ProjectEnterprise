@@ -1,38 +1,48 @@
 package EntPackage;
 
 public class User {
-	private String name;
-	private String email;
-	private String password;
+	private int userID;
+	private String userName;
+	private String userEmail;
+	private String userPassword;
 	
 	public User() {
 		super();
 	}
 	
-	public User(String name, String email, String password) {
+	public User(int userID, String userName, String userEmail, String userPassword) {
 		super();
-		this.name = name;
-		this.email = email;
-		this.password = password;
+		this.userID =userID;
+		this.userName = userName;
+		this.userEmail = userEmail;
+		this.userPassword = userPassword;
 	}
 	
-	public String getName() {
-		return name;
+	
+	public int getUserID() {
+		return userID;
 	}
-	public String getEmail() {
-		return email;
+	public String getUserName() {
+		return userName;
 	}
-	public String getPassword() {
-		return password;
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public String getUserPassword() {
+		return userPassword;
 	}
 	
-	public void setName(String name) {
-		this.name = name;
+	
+	public void setUserID(int userID) {
+		this.userID = userID;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
+	}
+	public void setUserPassword(String userPassword) {
+		this.userPassword = userPassword;
 	}
 }
