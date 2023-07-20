@@ -24,7 +24,7 @@
             <tr>
                 <td><%= cartItem.getProductID() %></td>
                 <td><%= cartItem.getProductName() %></td>
-                <td><%= cartItem.getProductPrice() %></td>
+                <td><%= cartItem.getProductName() %></td>
 
             </tr>
         <% } %>

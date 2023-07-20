@@ -1,46 +1,37 @@
 package EntPackage;
 
 public class Cart extends Product{
-	private String productName;
-    private double productPrice;
-    private int quantity;
-    private double subTotal;
+	private int cartID;
+    private double totalPrice;
+    private int userID;
 	
 	public Cart() {
 	}
 	
-	public Cart(String productName, double productPrice, int quantity, double subTotal) {
-        this.productName = productName;
-        this.productPrice = productPrice;
-        this.quantity = quantity;
-        this.subTotal = subTotal;
+	public Cart(int cartID, double totalPrice, int quantity, int userID) {
+        this.cartID = cartID;
+        this.totalPrice = totalPrice;
+        this.userID = userID;
     }
 	
-	public String getProductName() {
-		return productName;
+	public int getCartID() {
+		return cartID;
 	}
-	public double getProductPrice() {
-		return productPrice;
+	public double getTotalPrice() {
+		return totalPrice;
 	}
-	public int getQuantity() {
-		return quantity;
-	}
-	public double getSubTotal() {
-		return subTotal;
+	public int getUserID() {
+		return userID;
 	}
 
 	
-	public void setProductName(String productName) {
-		this.productName = productName;
+	public void getCartID(int cartID) {
+		this.cartID = cartID;
 	}
-	public void setProductPrice(double productPrice) {
-		this.productPrice = productPrice;
+	public void getTotalPrice(double totalPrice) {
+		this.totalPrice = totalPrice;
 	}
-	public void setQuantity(int quantity) {
-		this.quantity = quantity;
+	public void getUserID(int userID) {
+		this.userID = userID;
 	}
-	public void setSubTotal(double subTotal) {
-		this.subTotal = subTotal;
-	}
-	
 }

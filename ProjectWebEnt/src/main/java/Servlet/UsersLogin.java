@@ -17,8 +17,8 @@ public class UsersLogin extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String email = request.getParameter("email");
-        String password = request.getParameter("password");
+        String email = request.getParameter("userEmail");
+        String password = request.getParameter("userPassword");
 
         String dbURL = "jdbc:mysql://localhost:3306/users_register";
         String dbUser = "root";
@@ -28,7 +28,7 @@ public class UsersLogin extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
 
-            String sql = "SELECT * FROM users WHERE email = ? AND password = ?";
+            String sql = "SELECT * FROM users WHERE userEmail = ? AND userPassword = ?";
             PreparedStatement statement = conn.prepareStatement(sql);
             statement.setString(1, email);
             statement.setString(2, hashedAndSalted(password)); // Replace this with your password hashing logic
