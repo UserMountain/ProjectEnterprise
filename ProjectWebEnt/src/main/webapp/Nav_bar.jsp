@@ -36,8 +36,7 @@
     </section>
 
 
-
-    <section id="product1" class="section-p1">
+	 <section id="product1" class="section-p1">
         <h2>New Arrival</h2>
         <p>High Quality Microfiber And New Design</p>
         <div class="pro-container">
@@ -84,33 +83,47 @@
         </div>
     </section>
     
-     
-    <section>
-     <div class="pro-container\\">
-        
-       
-       <div class="contain">
-      <div class="boxes">
+    <section class="course">
+   <div class="content">
+        <h2 style="color: white;">UiTM Exclusive Edition</h2>
+        <p style="color: white;">Proud to be UiTM</p>
+    </div>
+    <div class="row">
+    		<div class="course-col">
+    	<div class="boxes">
         <img src="picture/Promo 1.jpg">
+     	</div>
+    		</div>
+    	
+    	<div class="course-col">
+    	<div class="boxes">
+        <img src="picture/Uitm model pic.jpg">
       </div>
-       </div>
-       
-        <div class="contain">
-      <div class="boxes">
-        <img src="picture/1. SIZE CHART.jpg">
-      </div>
-       </div>
-       
-        <div class="contain">
-      <div class="boxes">
+    	</div>
+    	
+    	<div class="course-col">
+    	<div class="boxes">
         <img src="picture/Promo 2.jpg">
-      </div>
-       </div>
-       
-       
-        </div>
+     	</div>
+    	</div>
+    	
+   </div>
+   </section>
+    
+    
+    <section >
+      <div class="content">
+      <br>
+        <h3 style="color: white;">"Student in Purple tee"</h3>
+        <p style="color: white;">-uitm-</p>
+    </div>
+        <div class="course-col">
+    	<div class="box">
+        <img src="picture/1. SIZE CHART.jpg">
+     	</div>
+    	</div>
     </section>
-
+	
     <section id="product1" class="section-p1">
         <h2>Our Collection</h2>
         <p>Most Recent</p>
@@ -135,7 +148,7 @@
             <div class="pro">
                 <img src="picture/Product_2.png" alt="">
                 <div class="des">
-                     <span>T-Shirt</span>
+                    <span>T-Shirt</span>
                     <h5>Saphalora</h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
@@ -188,7 +201,7 @@
             <div class="pro">
                 <img src="picture/Product_5.png" alt="">
                 <div class="des">
-                     <span>T-Shirt</span>
+                    <span>T-Shirt</span>
                     <h5>Zylo</h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
@@ -225,7 +238,7 @@
                 <img src="picture/Product_7.png" alt="">
                 <div class="des">
                     <span>T-Shirt</span>
-                    <h5>UiTM Mendonia Tee</h5>
+                    <h5>UiTM Mendonia White Tee</h5>
                     <div class="star">
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
@@ -259,6 +272,7 @@
     </section>
 
 
+   
     <section id="newsletter" class="section-p1 section-m1">
         <div class="newstext">
             <h4>Sign Up For Newsletter</h4>
