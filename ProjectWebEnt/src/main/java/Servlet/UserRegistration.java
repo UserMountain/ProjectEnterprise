@@ -1,8 +1,11 @@
 package Servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
+import java.sql.ResultSet;
 import java.sql.PreparedStatement;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -15,45 +18,43 @@ public class UserRegistration extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String userName = request.getParameter("userName");
+    	response.setContentType("text/html");
+        PrintWriter out = response.getWriter();
+    	
+    	int userID = 0;
+    	String userName = request.getParameter("userName");
         String userEmail = request.getParameter("userEmail");
         String userPassword = request.getParameter("userPassword");
 
         try {
-            // Update the database connection details accordingly
-            String dbURL = "jdbc:mysql://localhost:3306/users_register";
+        	String dbURL = "jdbc:mysql://localhost:3306/users_register";
             String dbUser = "root";
             String dbPassword = "root";
-
-            // Load the MySQL JDBC Driver
-            Class.forName("com.mysql.cj.jdbc.Driver");
-
-            // Connect to the database
-            Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
-
-            // Prepare the SQL statement
-            String sql = "INSERT INTO customer (userName, userEmail, userPassword) VALUES (?, ?, ?)";
-            PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setString(1, userName);
-            statement.setString(2, userEmail);
-            statement.setString(3, userPassword);
-
-            // Execute the statement
-            int rowsInserted = statement.executeUpdate();
-            statement.close();
-            conn.close();
-
-            // Redirect to a success page after successful registration
-            if (rowsInserted > 0) {
-                response.sendRedirect("TestingShop.jsp");
-            } else {
-                response.sendRedirect("loginRegister.jsp");
-            }
-    
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.sendRedirect("loginRegister.jsp");
+        	 Class.forName("com.mysql.cj.jdbc.Driver");
+        	 Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
+        	 Statement stmt = conn.createStatement();
+        	 String sql = "SELECT userID * FROM customer ORDER BY userID ASC";
+        	 ResultSet rs = stmt.executeQuery(sql);
+        	 
+        	 while(rs.next()) {
+        		 userID = rs.getInt("userID");
+        	 }
+        	 
+        	 userID = userID + 1;
+        	 
+        	 PreparedStatement statement = conn.prepareStatement("INSERT INTO customer VALUES (?, ?, ?, ?)");
+        	 statement.setInt(1, userID);
+        	 statement.setString(2, userName);
+             statement.setString(3, userEmail);
+             statement.setString(4, userPassword);
+             statement.executeUpdate();
+             
+             response.sendRedirect("TestingShop.jsp?userID=" + userID);
+        	 
+        }catch (Exception e2) {
+        	System.out.println(e2);
         }
+        out.close();
+
     }
 }

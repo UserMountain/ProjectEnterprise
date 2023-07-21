@@ -2,6 +2,7 @@
 <%@ page import="EntPackage.*" %>
 <%@ page import="DaoPackage.ProductDAO" %>
 <%@page import="java.util.List"%>
+<%@page import="javax.servlet.http.HttpSession"%>
 
 
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
@@ -45,6 +46,7 @@
         <div class="pro-container">
         
         <%
+        
        	ProductDAO productDAO = new ProductDAO();
         List<Product> products = productDAO.getAllProducts();
 
@@ -63,6 +65,9 @@
                         <i class='bx bx-star'></i>
                     </div>
                     <h4><%= product.getProductPrice() %></h4>
+
+
+               
                 </div>
                 <form action="TestingDisplayProduct" method="get">
                     <input type="hidden" name="productID" value="<%= product.getProductID() %>">
@@ -75,9 +80,10 @@
              <%
             }
         %>
+        
 		</div>
         </section>
-        
+       
 
 </body>
 </html>

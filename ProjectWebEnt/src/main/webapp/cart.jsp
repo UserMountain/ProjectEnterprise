@@ -1,10 +1,37 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@ page import="java.sql.Connection" %>
-<%@ page import="java.sql.DriverManager" %>
-<%@ page import="java.sql.PreparedStatement" %>
-<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.*" %>
+<%@ page import="DaoPackage.CartItemDAO" %>
+<%@page import="java.util.List"%>
+<%@ page import="EntPackage.*" %>
 
+<% 		
+try {
+    String dbURL = "jdbc:mysql://localhost:3306/users_register";
+    String dbUser = "root";
+    String dbPassword = "root";
+
+    Class.forName("com.mysql.cj.jdbc.Driver");
+    Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
+    Statement stmt = conn.createStatement();
+    ResultSet rs = stmt.executeQuery("SELECT * FROM cartItems");
+
+    while (rs.next()) {
+        int productID = rs.getInt("productID");
+        int cartID = rs.getInt("cartID");
+        String size = rs.getString("size");
+        int quantity = rs.getInt("quantity");
+        double subTotal = rs.getDouble("subTotal");
+        // Do something with the data if needed
+    }
+
+    rs.close();
+    stmt.close();
+    conn.close();
+} catch (SQLException e) {
+    e.printStackTrace();
+}
+%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +49,7 @@
 </head>
 
 <body>
+	<jsp:useBean id="CartItem" class="EntPackage.CartItem"></jsp:useBean>
     <section id="header">
         <a href="#"><img src="picture/logo3.png" class="logo" alt=""></a>
 
@@ -46,88 +74,51 @@
     </section>
 
     <section id="cart" class="section-p1">
-        <table width="100%">
-            <thead>
-                <tr>
-                    <td>Remove</td>
-                    <td>Image</td>
-                    <td>Product</td>
-                    <td>Price</td>
-                    <td>Quantity</td>
-                    <td>Subtotal</td>
-                </tr>
-            </thead>
-            <tbody>
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>Remove</td>
+                <td>Image</td>
+                <td>Product</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Subtotal</td>
+            </tr>
+        </thead>
+        <tbody>
             <% 
-            // Replace this with the actual product ID for which you want to display cart items
+                // Create an instance of the CartItem class
+                CartItem cartItem = new CartItem();
+                List<Integer> productIDs = cartItem.getProductIDs();
+                List<Integer> cartIDs = cartItem.getCartIDs();
+                List<String> sizes = cartItem.getSizes();
+                List<Integer> quantitys = cartItem.getQuantitys();
+                List<Double> subTotals = cartItem.getSubTotals();
+                int loopSize = productIDs.size();
 
-            // Format for displaying currency values
-            java.text.DecimalFormat df = new java.text.DecimalFormat("#0.00");
+                for (int i = 0; i < loopSize; i++) {
+                    int productID = productIDs.get(i);
+                    int cartID = cartIDs.get(i);
+                    String size = sizes.get(i);
+                    int quantity = quantitys.get(i);
+                    double subTotal = subTotals.get(i);
+            %>
+            <tr>
+                <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
+                <td><img src="picture/Product_5.png" alt=""></td>
+                <td><%= size %></td>
+                <td><%= quantity %></td>
+                <td><input type="number" value="1" min="1"></td>
+                <td>RM<%= subTotal %></td>
+            </tr>
+            <% } %>
+        </tbody>
+    </table>
+</section>
 
-            // Database connection parameters
-            String dbUrl = "jdbc:mysql://localhost:3306/users_register";
-            String dbUser = "root";
-            String dbPassword = "root";
-			int productID = 1004;
-            try {
-                // Establish database connection
-                Class.forName("com.mysql.cj.jdbc.Driver");
-                Connection conn = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
 
-                // Retrieve cart items from the database
-                String sql = "SELECT * FROM cartItems WHERE productID = ?";
-                PreparedStatement pstmt = conn.prepareStatement(sql);
-                
-                pstmt.setInt(1, productID);
-                ResultSet rs = pstmt.executeQuery();
 
-                // Iterate through the cart items and display them in the table
-                while (rs.next()) {
-                	productID = rs.getInt("productID");
-                    int cartID = rs.getInt("cartID");
-                    String size = rs.getString("size");
-                    int quantity = rs.getInt("quantity");
-                    double subTotal = rs.getDouble("subTotal");
-        %>
-                <tr>
-                     <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="picture/Product_5.png" alt=""></td>
-                    <td><%= size %></td>
-                    <td><%= quantity %></td>
-                    <td><input type="number" value="1" min="1"></td>
-                    <td>RM<%= df.format(subTotal) %></td>
-                </tr>
-                <tr>
-                     <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="picture/Product_6.png" alt=""></td>
-                    <td>Black Flower T-shirt</td>
-                    <td>RM60.00</td>
-                    <td><input type="number" value="1" min="1"></td>
-                    <td>RM60.00</td>
-                </tr>
-                <tr>
-                     <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
-                    <td><img src="picture/Product_7.png" alt=""></td>
-                    <td>Long Sleeve Purple UITM</td>
-                    <td>RM65.00</td>
-                    <td><input type="number" value="1" min="1"></td>
-                    <td>RM65.00</td>
-                </tr>
-                
-                <% 
-                }
-                rs.close();
-                pstmt.close();
-                conn.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        %>
-      
-            </tbody>
-            
-        </table>
-    </section>
+
 
     <section id="cart-add" class="section-p1">
         <div id="coupon">

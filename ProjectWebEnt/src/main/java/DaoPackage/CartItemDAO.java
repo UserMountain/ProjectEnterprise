@@ -35,36 +35,33 @@ public class CartItemDAO {
         }
     }
     
-    public List<CartItem> getCartItemsByProductID(int productID) {
-        List<CartItem> cartItems = new ArrayList<>();
+    public List<CartItem> getCartItemsForUser() {
+    	List<CartItem> cartItems = new ArrayList<>();
 
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
-            String sql = "SELECT * FROM cartItems WHERE productID = ?";
-            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                pstmt.setInt(1, productID);
-                try (ResultSet rs = pstmt.executeQuery()) {
-                    while (rs.next()) {
-                        int cartID = rs.getInt("cartID");
-                        String size = rs.getString("size");
-                        int quantity = rs.getInt("quantity");
-                        double subTotal = rs.getDouble("subTotal");
+        try {
+            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
 
-                        CartItem cartItem = new CartItem();
-                        cartItem.setProductID(productID);
-                        cartItem.setCartID(cartID);
-                        cartItem.setSize(size);
-                        cartItem.setQuantity(quantity);
-                        cartItem.setSubTotal(subTotal);
+            // Query to retrieve cart items for the given user (replace 'your-cart-items-table' with your cart items table name)
+            String query = "SELECT * FROM cartItems ";
+            PreparedStatement preparedStatement = connection.prepareStatement(query);
+            ResultSet resultSet = preparedStatement.executeQuery(query);
 
-                        cartItems.add(cartItem);
-                    }
-                }
+            // Iterate through the results and create CartItem objects to store the details
+            while (resultSet.next()) {
+                int productID = resultSet.getInt("productID");
+                int cartID = resultSet.getInt("cartID");
+                String size = resultSet.getString("size");
+                int quantity = resultSet.getInt("quantity");
+                double subTotal = resultSet.getDouble("subTotal");
+                CartItem cartItem = new CartItem(productID, cartID, size, quantity, subTotal);
+                cartItems.add(cartItem);
             }
-        } catch (SQLException e) {
+
+   
+        } catch (Exception e) {
             e.printStackTrace();
         }
 
         return cartItems;
     }
-
 }

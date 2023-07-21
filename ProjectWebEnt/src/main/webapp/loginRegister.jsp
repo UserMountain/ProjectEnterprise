@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@page import="EntPackage.*"%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -50,6 +52,13 @@
                 </div>
             </div>
         </div>
+        
+        <%
+	User auth = (User) request.getSession().getAttribute("auth");
+	if (auth != null) {
+		response.sendRedirect("TestingShop.jsp");
+	}
+	%>
        
         <div class="logreg-box">
             <div class="form-box login">
