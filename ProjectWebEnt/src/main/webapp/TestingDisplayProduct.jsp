@@ -43,6 +43,7 @@
     </section>
     <h2>Product Details</h2>
     <%
+
         int selectedProductId = Integer.parseInt(request.getParameter("productID"));
 
         ProductDAO productDAO = new ProductDAO();
@@ -81,6 +82,7 @@
                     <input type="hidden" name="productID" value="<%= selectedProduct.getProductID() %>">
                     <input type="hidden" name="productImage" value="<%= selectedProduct.getProductImage() %>">
                     <input type="hidden" name="productPrice" value="<%= selectedProduct.getProductPrice() %>">
+                    <input type="hidden" name="userID" value="<%= request.getParameter("userID") %>">
                     <button type="submit" class="normal" name="addToCart" >Add To Cart</button>
                 </form>
             <h4>Product Details</h4>
