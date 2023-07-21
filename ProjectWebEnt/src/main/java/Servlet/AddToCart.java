@@ -35,13 +35,13 @@ public class AddToCart extends HttpServlet {
             Statement stmt = conn.createStatement();
             ResultSet rs = stmt.executeQuery(sql);
             
-            String sql2 = "SELECT * FROM product BY productID";
+            String sql2 = "SELECT * FROM product";
             Statement stmt2 = conn.createStatement();
             ResultSet rs2 = stmt2.executeQuery(sql2);
             
             int cartID = 0;
             int userID = Integer.parseInt(request.getParameter("userID"));
-            double zero = 0;
+            double zero = 0.00;
             
             while(rs.next()) {
             	cartID = rs.getInt("cartID");
@@ -50,6 +50,7 @@ public class AddToCart extends HttpServlet {
             cartID += 1;
             
             PreparedStatement ps = conn.prepareStatement("INSERT INTO cart VALUE(?,?,?)");
+            
             ps.setInt(1, cartID);
             ps.setDouble(2, zero);
             ps.setInt(3, userID);
@@ -71,7 +72,7 @@ public class AddToCart extends HttpServlet {
             			int quantity = Integer.parseInt(checkQuantity);
             			
             			double subTotal = quantity*productPrice;
-            			totalPrice += subTotal;
+            			totalPrice = totalPrice + subTotal;
             			
             			PreparedStatement ps2 = conn.prepareStatement("INSERT INTO cartItems VALUE(?,?,?,?,?)");
             			
@@ -86,14 +87,17 @@ public class AddToCart extends HttpServlet {
             	}
             }
             
-            String sql3 = "UPDATE cart SET totalPrice = " + totalPrice + "WHERE cartID = " + cartID;
+            String sql3 = "UPDATE cart SET totalPrice = " + totalPrice + " WHERE cartID = " + cartID;
             PreparedStatement ps3 = conn.prepareStatement(sql3);
             ps3.executeUpdate();
             response.sendRedirect("cart.jsp?userID=" + userID + "&cartID=" + cartID);
     
         } catch (SQLException e2) {
            System.out.println(e2);
-        }
+        } catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
         out.close();
         
     }

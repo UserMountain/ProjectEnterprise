@@ -66,14 +66,14 @@
             <h2>RM<%= selectedProduct.getProductPrice() %></h2>
             <h6>Size: </h6><select name="size">
                 <option>XS</option>
-                <option>S>
+                <option>S</option>
                 <option>M</option>
                 <option>L</option>
                 <option>XL</option>
             </select>
            <h6>Quantity: </h6><select name="quantity">
                 <option>1</option>
-                <option>2></option>
+                <option>2</option>
                 <option>3</option>
                 <option>4</option>
                 <option>5</option>

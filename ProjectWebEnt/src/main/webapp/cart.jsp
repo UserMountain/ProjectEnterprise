@@ -6,6 +6,7 @@
 <%@ page import="EntPackage.*" %>
 
 <% 		
+
 try {
     String dbURL = "jdbc:mysql://localhost:3306/users_register";
     String dbUser = "root";
@@ -86,32 +87,15 @@ try {
             </tr>
         </thead>
         <tbody>
-            <% 
-                // Create an instance of the CartItem class
-                CartItem cartItem = new CartItem();
-                List<Integer> productIDs = cartItem.getProductIDs();
-                List<Integer> cartIDs = cartItem.getCartIDs();
-                List<String> sizes = cartItem.getSizes();
-                List<Integer> quantitys = cartItem.getQuantitys();
-                List<Double> subTotals = cartItem.getSubTotals();
-                int loopSize = productIDs.size();
-
-                for (int i = 0; i < loopSize; i++) {
-                    int productID = productIDs.get(i);
-                    int cartID = cartIDs.get(i);
-                    String size = sizes.get(i);
-                    int quantity = quantitys.get(i);
-                    double subTotal = subTotals.get(i);
-            %>
             <tr>
                 <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
                 <td><img src="picture/Product_5.png" alt=""></td>
-                <td><%= size %></td>
-                <td><%= quantity %></td>
+                <td><%= getSize() %></td>
+                <td><%= getQuantity() %></td>
                 <td><input type="number" value="1" min="1"></td>
-                <td>RM<%= subTotal %></td>
+                <td>RM<%= getSubTotal() %></td>
             </tr>
-            <% } %>
+ 
         </tbody>
     </table>
 </section>

@@ -33,7 +33,7 @@ public class UserRegistration extends HttpServlet {
         	 Class.forName("com.mysql.cj.jdbc.Driver");
         	 Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
         	 Statement stmt = conn.createStatement();
-        	 String sql = "SELECT userID * FROM customer ORDER BY userID ASC";
+        	 String sql = "SELECT userID FROM customer ORDER BY userID ASC";
         	 ResultSet rs = stmt.executeQuery(sql);
         	 
         	 while(rs.next()) {
@@ -42,7 +42,7 @@ public class UserRegistration extends HttpServlet {
         	 
         	 userID = userID + 1;
         	 
-        	 PreparedStatement statement = conn.prepareStatement("INSERT INTO customer VALUES (?, ?, ?, ?)");
+        	 PreparedStatement statement = conn.prepareStatement("INSERT INTO customer (userID, userName, userEmail, userPassword) VALUES(?, ?, ?, ?)");
         	 statement.setInt(1, userID);
         	 statement.setString(2, userName);
              statement.setString(3, userEmail);

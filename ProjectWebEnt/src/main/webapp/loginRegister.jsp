@@ -53,12 +53,6 @@
             </div>
         </div>
         
-        <%
-	User auth = (User) request.getSession().getAttribute("auth");
-	if (auth != null) {
-		response.sendRedirect("TestingShop.jsp");
-	}
-	%>
        
         <div class="logreg-box">
             <div class="form-box login">
