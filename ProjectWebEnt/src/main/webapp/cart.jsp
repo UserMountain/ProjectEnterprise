@@ -28,12 +28,12 @@
 
         <div>
             <ul id="navbar">
-                <li><a href="Nav_bar.html">Home</a></li>
-                <li><a href="shop.jsp">Shop</a></li>
-                <li><a href="blog.jsp">Blog</a></li>
-                <li><a href="about.jsp">About</a></li>
-                <li><a href="contact.jsp">Contact</a></li>
-                <li id="lg-bag"><a class="active"href="cart.jsp"><i class="bx bx-cart-alt"></i></a></li>
+                <li><a href="Nav_bar.jsp?userID=<%=request.getParameter("userID") %>">Home</a></li>
+                <li><a class="active" href="showProducts.jsp?userID=<%=request.getParameter("userID") %>">Shop</a></li>
+                <li><a href="blog.jsp?userID=<%=request.getParameter("userID") %>">Blog</a></li>
+                <li><a href="about.jsp?userID=<%=request.getParameter("userID") %>">About</a></li>
+                <li><a href="contact.jsp?userID=<%=request.getParameter("userID") %>">Contact</a></li>
+                <li><a href="cart.jsp?userID=<%=request.getParameter("userID") %>"><i class='bx bx-cart-alt'></i></a></li>
             </ul>
         </div>
     </section>
@@ -89,7 +89,7 @@
                 ResultSet rs2 = stmt2.executeQuery();
                 
                 while (rs2.next()){
-                	productID = rs.getInt("productID");
+                	productID = rs2.getInt("productID");
                     String productName = rs2.getString("productName");
                     double productPrice = rs2.getInt("productPrice");
                     String productCategory = rs2.getString("productCategory");
@@ -98,7 +98,7 @@
                 
                 %>
                 <tr>
-	                <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
+	                <td><a href="DeleteCart?cartID=<%= cartID %>"delete-btn"><i class="far fa-times-circle"></i></a></td>
 	                <td><img src="picture/<%= productImage %>" alt=""></td>
 	                <td><%= productName %></td>
 	                <td><%= productPrice %></td>

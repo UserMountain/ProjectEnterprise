@@ -31,12 +31,12 @@
         <a href="#"><img src="picture/logo3.png" class="logo" alt=""></a>
         <div>
             <ul id="navbar">
-                <li><a href="Nav_bar.html">Home</a></li>
-                <li><a class="active" href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="cart.html"><i class='bx bx-cart-alt'></i></a></li>
+                <li><a href="Nav_bar.jsp?userID=<%=request.getParameter("userID") %>">Home</a></li>
+                <li><a class="active" href="showProducts.jsp?userID=<%=request.getParameter("userID") %>">Shop</a></li>
+                <li><a href="blog.jsp?userID=<%=request.getParameter("userID") %>">Blog</a></li>
+                <li><a href="about.jsp?userID=<%=request.getParameter("userID") %>">About</a></li>
+                <li><a href="contact.jsp?userID=<%=request.getParameter("userID") %>">Contact</a></li>
+                <li><a href="cart.jsp?userID=<%=request.getParameter("userID") %>"><i class='bx bx-cart-alt'></i></a></li>
             </ul>
         </div>
     </section>
@@ -76,11 +76,10 @@
                 <form action="TestingDisplayProduct" method="get">
                     <input type="hidden" name="productID" value="<%= product.getProductID() %>">
                     <input type="hidden" name="userID" value="<%= request.getParameter("userID") %>">
-                    <input type="submit" value="View Details">
 
                 </form>
                 <a href="DetailsProduct.jsp?productID=<%=product.getProductID()%>&productName=<%=product.getProductName()%>&productPrice=<%=product.getProductPrice()%>&productCategory=<%=product.getProductCategory()%>&productDesc=<%=product.getProductDesc()%>
-                &productImage=<%=product.getProductImage()%>&userID=<%=request.getParameter("userID") %>">View Details</a>
+                &productImage=<%=product.getProductImage()%>&userID=<%=request.getParameter("userID") %>"><input type="submit" value="View Details"></a>
             </div>
              <%
             }

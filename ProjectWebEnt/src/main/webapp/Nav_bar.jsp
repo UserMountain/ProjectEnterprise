@@ -9,7 +9,7 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	<title>Dashboard Projects</title>
+	<title>Dashboard Project</title>
 
     <link rel="stylesheet" href="dash.css">
 </head>
@@ -20,12 +20,12 @@
 
         <div>
             <ul id="navbar">
-                <li><a class="active" href="Nav_bar.html">Home</a></li>
-                <li><a href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="cart.html"><i class='bx bx-cart-alt'></i></a></li>
+                <li><a href="Nav_bar.jsp?userID=<%=request.getParameter("userID") %>">Home</a></li>
+                <li><a class="active" href="showProducts.jsp?userID=<%=request.getParameter("userID") %>">Shop</a></li>
+                <li><a href="blog.jsp?userID=<%=request.getParameter("userID") %>">Blog</a></li>
+                <li><a href="about.jsp?userID=<%=request.getParameter("userID") %>">About</a></li>
+                <li><a href="contact.jsp?userID=<%=request.getParameter("userID") %>">Contact</a></li>
+                <li><a href="cart.jsp?userID=<%=request.getParameter("userID") %>"><i class='bx bx-cart-alt'></i></a></li>
             </ul>
         </div>
     </section>
@@ -34,7 +34,6 @@
     <section id="home">
         <a href="#"><img src="picture/home.jpg" class="logo" alt=""></a>
     </section>
-
 
 	 <section id="product1" class="section-p1">
         <h2>New Arrival</h2>
@@ -273,6 +272,8 @@
 
 
    
+
+
     <section id="newsletter" class="section-p1 section-m1">
         <div class="newstext">
             <h4>Sign Up For Newsletter</h4>
@@ -331,3 +332,4 @@
 </body>
 
 </html>
+
