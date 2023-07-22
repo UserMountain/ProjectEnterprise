@@ -30,11 +30,11 @@
         <div>
             <ul id="navbar">
                 <li><a href="Nav_bar.html">Home</a></li>
-                <li><a class="active" href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="cart.html"><i class='bx bx-cart-alt'></i></a></li>
+                <li><a class="active" href="showProducts.jsp">Shop</a></li>
+                <li><a href="blog.jsp">Blog</a></li>
+                <li><a href="about.jsp">About</a></li>
+                <li><a href="contact.jsp">Contact</a></li>
+                <li><a href="cart.jsp"><i class='bx bx-cart-alt'></i></a></li>
             </ul>
         </div>
     </section>
