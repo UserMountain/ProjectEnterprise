@@ -5,7 +5,7 @@ import java.util.*;
 import EntPackage.Product;
 
 public class ProductDAO {
-	private static final String DB_URL = "jdbc:mysql://localhost:3306/users_register";
+	private static final String DB_URL = "jdbc:mysql://localhost:3306/enterprise";
     private static final String DB_USER = "root";
     private static final String DB_PASSWORD = "root";
     

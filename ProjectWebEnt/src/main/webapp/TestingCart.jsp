@@ -1,88 +1,221 @@
-<%@page import="ConnectionDB.DbCons"%>
-<%@page import="DaoPackage.ProductDaos"%>
-<%@page import="EntPackage.Users"%>
-<%@page import="EntPackage.Carts"%>
-<%@page import="java.util.*"%>
-<%@page import="java.text.DecimalFormat"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
-<%
-DecimalFormat dcf = new DecimalFormat("#.##");
-request.setAttribute("dcf", dcf);
-Users auth = (Users) request.getSession().getAttribute("auth");
-if (auth != null) {
-    request.setAttribute("person", auth);
-}
-ArrayList<Carts> cart_list = (ArrayList<Carts>) session.getAttribute("cart-list");
-List<Carts> cartProduct = null;
-if (cart_list != null) {
-	ProductDaos pDao = new ProductDaos(DbCons.getConnection());
-	cartProduct = pDao.getCartProducts(cart_list);
-	double total = pDao.getTotalCartPrice(cart_list);
-	request.setAttribute("total", total);
-	request.setAttribute("cart_list", cart_list);
-}
-%>
+    pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.*" %>
+<%@ page import="DaoPackage.CartItemDAO" %>
+<%@page import="java.util.List"%>
+<%@ page import="EntPackage.*" %>
+
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<%@include file="/includes/head.jsp"%>
-<title>E-Commerce Cart</title>
-<style type="text/css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Project</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
-.table tbody td{
-vertical-align: middle;
-}
-.btn-incre, .btn-decre{
-box-shadow: none;
-font-size: 25px;
-}
-</style>
+    <link rel="stylesheet"href="cast.css">
 </head>
+
 <body>
-	<%@include file="/includes/navbar.jsp"%>
+	<jsp:useBean id="CartItem" class="EntPackage.CartItem"></jsp:useBean>
+    <section id="header">
+        <a href="#"><img src="picture/logo3.png" class="logo" alt=""></a>
 
-	<div class="container my-3">
-		<div class="d-flex py-3"><h3>Total Price: $ ${(total>0)?dcf.format(total):0} </h3> <a class="mx-3 btn btn-primary" href="cart-check-out">Check Out</a></div>
-		<table class="table table-light">
-			<thead>
-				<tr>
-					<th scope="col">Name</th>
-					<th scope="col">Category</th>
-					<th scope="col">Price</th>
-					<th scope="col">Buy Now</th>
-					<th scope="col">Cancel</th>
-				</tr>
-			</thead>
-			<tbody>
-				<%
-				if (cart_list != null) {
-					for (Carts c : cartProduct) {
-				%>
-				<tr>
-					<td><%=c.getName()%></td>
-					<td><%=c.getCategory()%></td>
-					<td><%= dcf.format(c.getPrice())%></td>
-					<td>
-						<form action="order-now" method="post" class="form-inline">
-						<input type="hidden" name="id" value="<%= c.getId()%>" class="form-input">
-							<div class="form-group d-flex justify-content-between">
-								<a class="btn bnt-sm btn-incre" href="quantity-inc-dec?action=inc&id=<%=c.getId()%>"><i class="fas fa-plus-square"></i></a> 
-								<input type="text" name="quantity" class="form-control"  value="<%=c.getQuantity()%>" readonly> 
-								<a class="btn btn-sm btn-decre" href="quantity-inc-dec?action=dec&id=<%=c.getId()%>"><i class="fas fa-minus-square"></i></a>
-							</div>
-							<button type="submit" class="btn btn-primary btn-sm">Buy</button>
-						</form>
-					</td>
-					<td><a href="remove-from-cart?id=<%=c.getId() %>" class="btn btn-sm btn-danger">Remove</a></td>
-				</tr>
+        <div>
+            <ul id="navbar">
+                <li><a href="Nav_bar.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li id="lg-bag"><a class="active"href="cart.html"><i class="bx bx-cart-alt"></i></a></li>
+            </ul>
+        </div>
+    </section>
 
-				<%
-				}}%>
-			</tbody>
-		</table>
-	</div>
+    <section id="page-header" class="about-header">
+        
+        <h2>#let's talk</h2>
 
-	<%@include file="/includes/footer.jsp"%>
+        <p>LEAVE A MESSAGE, We love to hear from you! </p>
+        
+    </section>
+
+    <section id="cart" class="section-p1">
+    <table width="100%">
+        <thead>
+            <tr>
+                <td>Remove</td>
+                <td>Image</td>
+                <td>Product</td>
+                <td>Price</td>
+                <td>Quantity</td>
+                <td>Subtotal</td>
+            </tr>
+        </thead>
+        <tbody>
+        
+        
+        <% 
+        try {
+            String dbURL = "jdbc:mysql://localhost:3306/enterprise";
+            String dbUser = "root";
+            String dbPassword = "root";
+			
+            int userID = Integer.parseInt(request.getParameter("userID"));
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM cartItems WHERE userID = ?");
+            stmt.setInt(1, userID); // Replace 123 with the desired userID
+            ResultSet rs = stmt.executeQuery();
+            
+
+            while (rs.next()) {
+                int cartID = rs.getInt("cartID");
+                int productID = rs.getInt("productID");
+                userID = rs.getInt("userID");
+                String size = rs.getString("size");
+                int quantity = rs.getInt("quantity");
+                double subTotal = rs.getInt("subTotal");
+                
+                PreparedStatement stmt2 = conn.prepareStatement("SELECT * FROM product WHERE productID = ?");
+                stmt2.setInt(1, productID);
+                ResultSet rs2 = stmt2.executeQuery();
+                
+                while (rs2.next()){
+                	productID = rs.getInt("productID");
+                    String productName = rs2.getString("productName");
+                    double productPrice = rs2.getInt("productPrice");
+                    String productCategory = rs2.getString("productCategory");
+                    String productDesc = rs2.getString("productDesc");
+                    String productImage = rs2.getString("productImage");
+                
+                %>
+                <tr>
+	                <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
+	                <td><img src="picture/<%= productImage %>" alt=""></td>
+	                <td><%= productName %></td>
+	                <td><%= productPrice %></td>
+                    <td><input type="number" value="<%= quantity %>"></td>
+                    <td>RM<%= subTotal %></td>
+                    
+  
+                </tr>
+                <% 
+                }
+                rs2.close();
+                stmt2.close();
+            }
+
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            // Handle exceptions appropriately
+        }
+        %>
+        
+        
+        </tbody>
+    </table>
+</section>
+
+
+
+
+
+    <section id="cart-add" class="section-p1">
+        <div id="coupon">
+            <h3>Apply Coupon</h3>
+            <div>
+                <input type="text" placeholder="Enter Your Coupon">
+                <button class="normal">Apply</button>
+            </div>
+        </div>
+
+        <div id="subtotal">
+            <h3>Cart Totals</h3>
+            <table>
+                <tr>
+                    <td>Cart Subtotal</td>
+                    <td>RM285</td>
+                </tr>
+                <tr>
+                    <td>Shipping</td>
+                    <td>Free</td>
+                </tr>
+                <tr>
+                    <td><strong>Total</strong></td>
+                    <td><strong>RM 285</strong></td>
+                </tr>
+            </table>
+            <button class="normal">Proceed to checkout</button>
+        </div>
+    </section>
+
+    <footer class="section-p1">
+        <div class="col">
+            <img src="picture/logo2.jpg" alt="">
+            <h4>Contact</h4>
+            <p><strong>Address: </strong>No 5 Jalan Genting Emas, Taman Genting Emas, Balik Pulau</p>
+            <p><strong>Phone: </strong>013-4833847</p>
+            <p><strong>Hours: </strong>10.00 - 18.00, Mon - Sat</p>
+            <div class="follow">
+                <h4>Follow Us!</h4>
+                <div class="icon">
+                    <i class='bx bxl-facebook' ></i>
+                    <i class='bx bxl-google'></i>
+                    <i class='bx bxl-instagram' ></i>
+                    <i class='bx bxl-twitter' ></i>
+                </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <h4>Company</h4>
+            <a href="about.html">About Us</a>
+           	<a href="blog.html">Blog</a>
+            <a href="#">Privacy Policy</a>
+            <a href="contact.html">Contact Us</a>
+        </div>
+
+        <div class="col install">
+            <p>Secured Payment Gateways</p>
+            <div class="icom">
+                <i class='bx bxl-visa' ></i>
+                <i class='bx bx-credit-card-alt' ></i>
+                <i class='bx bxl-mastercard' ></i>
+            </div>
+        </div>
+
+        <div class="copyright">
+            <p>@ 2023, Enterprise - HTML CSS Website</p>
+        </div>
+
+    </footer>
+
+ 
+	<script>
+    // Get all the delete buttons
+    var deleteButtons = document.querySelectorAll('.delete-btn');
+
+    // Attach event listener to each delete button
+    deleteButtons.forEach(function (button) {
+        button.addEventListener('click', function () {
+            var row = button.parentNode.parentNode; // Get the parent row
+            row.remove(); // Remove the row from the table
+        });
+    });
+	</script>
+    <script src="cast.css"></script>
+    
 </body>
 </html>
+	

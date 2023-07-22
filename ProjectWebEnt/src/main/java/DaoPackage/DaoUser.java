@@ -19,7 +19,7 @@ public class DaoUser {
         Class.forName("com.mysql.cj.jdbc.Driver");
 
         try (Connection connection = DriverManager
-            .getConnection("jdbc:mysql://localhost:3306/user_register?useSSL=false", "root", "root");
+            .getConnection("jdbc:mysql://localhost:3306/enterprise?useSSL=false", "root", "root");
 
             // Step 2:Create a statement using connection object
             PreparedStatement preparedStatement = connection.prepareStatement(INSERT_USERS_SQL)) {

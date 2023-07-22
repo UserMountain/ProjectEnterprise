@@ -1,6 +1,5 @@
 package DaoPackage;
 
-import EntPackage.CartItem;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -9,59 +8,44 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import EntPackage.Cart;
 import EntPackage.CartItem;
 
 public class CartItemDAO {
-    private String DB_URL = "jdbc:mysql://localhost:3306/users_register";
-    private String DB_USER = "root";
-    private String DB_PASSWORD = "root";
+    // Other code remains the same as provided in the previous example
 
-    public void insertCartItem(CartItem cartItem) {
-        try (Connection conn = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
-            String sql = "INSERT INTO cartItems (productID, cartID, size, quantity, subTotal) VALUES (?, ?, ?, ?, ?)";
-            try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
-                pstmt.setInt(1, cartItem.getProductID());
-                pstmt.setInt(2, cartItem.getCartID());
-                pstmt.setString(3, cartItem.getSize());
-                pstmt.setInt(4, cartItem.getQuantity());
-                pstmt.setDouble(5, cartItem.getSubTotal());
-          
+	int selectedProductID = Integer.parseInt(request.getParameter("productID"));
+	
+    // Get cart items for a specific userID from the database
+    public List<CartItem> getCartItemsForUserID(int userID) {
+        List<CartItem> cartItems = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(
+                     "SELECT productID, size, quantity, subTotal " +
+                     "FROM cartItems WHERE userID = ?")) {
 
-                pstmt.executeUpdate();
+            // Set the userID parameter in the prepared statement
+            preparedStatement.setInt(1, userID);
+
+            try (ResultSet resultSet = preparedStatement.executeQuery()) {
+                while (resultSet.next()) {
+                    CartItem cartItem = new CartItem();
+                    cartItem.setProductImage(resultSet.getString("productImage"));
+                    cartItem.setProductPrice(resultSet.getDouble("productPrice"));
+                    cartItem.setProductQuantity(resultSet.getInt("productQuantity"));
+                    cartItem.setProductName(resultSet.getString("productName"));
+                    cartItems.add(cartItem);
+                }
             }
+
         } catch (SQLException e) {
             e.printStackTrace();
+            // Handle exceptions appropriately
         }
-    }
-    
-    public List<CartItem> getCartItemsForUser() {
-    	List<CartItem> cartItems = new ArrayList<>();
-
-        try {
-            Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
-
-            // Query to retrieve cart items for the given user (replace 'your-cart-items-table' with your cart items table name)
-            String query = "SELECT * FROM cartItems ";
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            ResultSet resultSet = preparedStatement.executeQuery(query);
-
-            // Iterate through the results and create CartItem objects to store the details
-            while (resultSet.next()) {
-                int productID = resultSet.getInt("productID");
-                int cartID = resultSet.getInt("cartID");
-                String size = resultSet.getString("size");
-                int quantity = resultSet.getInt("quantity");
-                double subTotal = resultSet.getDouble("subTotal");
-                CartItem cartItem = new CartItem(productID, cartID, size, quantity, subTotal);
-                cartItems.add(cartItem);
-            }
-
-   
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
         return cartItems;
     }
+
+	private Connection getConnection() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

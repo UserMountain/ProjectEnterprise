@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name = "UsersLogin", urlPatterns = {"/UsersLogin"})
-public class UsersLogin extends HttpServlet {
+@WebServlet(name="UserLogin", urlPatterns= {"/UserLogin"})
+public class UserLogin extends HttpServlet {
   private static final long serialVersionUID = 1L;
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     
@@ -21,8 +21,8 @@ public class UsersLogin extends HttpServlet {
   boolean check = false;
   
   try {
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/users_register", "root", "root");
+    Class.forName("com.mysql.jdbc.Driver");
+    Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/enterprise", "root", "root");
     
     Statement stmt = con.createStatement();
     String sql = "SELECT * FROM customer";
@@ -30,7 +30,7 @@ public class UsersLogin extends HttpServlet {
     
     while(rs.next()) {
       String username = rs.getString("userEmail");
-      String password = rs.getString("userEmail");
+      String password = rs.getString("userPassword");
       userID = rs.getInt("userID");
       
       if(username.equalsIgnoreCase(checkUsername) && password.equalsIgnoreCase(checkPassword)) 
@@ -41,7 +41,7 @@ public class UsersLogin extends HttpServlet {
     }
     
     if (check == true)
-      response.sendRedirect( "TestingShop.jsp?userID=" + userID);
+      response.sendRedirect( "showProduct.jsp?userID=" + userID);
     
     else if (check == false)
       response.sendRedirect("loginRegister.jsp");

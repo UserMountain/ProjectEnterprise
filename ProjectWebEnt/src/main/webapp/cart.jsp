@@ -5,34 +5,6 @@
 <%@page import="java.util.List"%>
 <%@ page import="EntPackage.*" %>
 
-<% 		
-
-try {
-    String dbURL = "jdbc:mysql://localhost:3306/users_register";
-    String dbUser = "root";
-    String dbPassword = "root";
-
-    Class.forName("com.mysql.cj.jdbc.Driver");
-    Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
-    Statement stmt = conn.createStatement();
-    ResultSet rs = stmt.executeQuery("SELECT * FROM cartItems");
-
-    while (rs.next()) {
-        int productID = rs.getInt("productID");
-        int cartID = rs.getInt("cartID");
-        String size = rs.getString("size");
-        int quantity = rs.getInt("quantity");
-        double subTotal = rs.getDouble("subTotal");
-        // Do something with the data if needed
-    }
-
-    rs.close();
-    stmt.close();
-    conn.close();
-} catch (SQLException e) {
-    e.printStackTrace();
-}
-%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -87,15 +59,70 @@ try {
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
-                <td><img src="picture/Product_5.png" alt=""></td>
-                <td><%= getSize() %></td>
-                <td><%= getQuantity() %></td>
-                <td><input type="number" value="1" min="1"></td>
-                <td>RM<%= getSubTotal() %></td>
-            </tr>
- 
+        
+        
+        <% 
+        try {
+            String dbURL = "jdbc:mysql://localhost:3306/enterprise";
+            String dbUser = "root";
+            String dbPassword = "root";
+			
+            int userID = Integer.parseInt(request.getParameter("userID"));
+            
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM cartItems WHERE userID = ?");
+            stmt.setInt(1, userID); // Replace 123 with the desired userID
+            ResultSet rs = stmt.executeQuery();
+            
+
+            while (rs.next()) {
+                int cartID = rs.getInt("cartID");
+                int productID = rs.getInt("productID");
+                userID = rs.getInt("userID");
+                String size = rs.getString("size");
+                int quantity = rs.getInt("quantity");
+                double subTotal = rs.getInt("subTotal");
+                
+                PreparedStatement stmt2 = conn.prepareStatement("SELECT * FROM product WHERE productID = ?");
+                stmt2.setInt(1, productID);
+                ResultSet rs2 = stmt2.executeQuery();
+                
+                while (rs2.next()){
+                	productID = rs.getInt("productID");
+                    String productName = rs2.getString("productName");
+                    double productPrice = rs2.getInt("productPrice");
+                    String productCategory = rs2.getString("productCategory");
+                    String productDesc = rs2.getString("productDesc");
+                    String productImage = rs2.getString("productImage");
+                
+                %>
+                <tr>
+	                <td><a href="#" class="delete-btn"><i class="far fa-times-circle"></i></a></td>
+	                <td><img src="picture/<%= productImage %>" alt=""></td>
+	                <td><%= productName %></td>
+	                <td><%= productPrice %></td>
+                    <td><input type="number" value="<%= quantity %>"></td>
+                    <td>RM<%= subTotal %></td>
+                    
+  
+                </tr>
+                <% 
+                }
+                rs2.close();
+                stmt2.close();
+            }
+
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+            // Handle exceptions appropriately
+        }
+        %>
+        
+        
         </tbody>
     </table>
 </section>
@@ -191,3 +218,4 @@ try {
     
 </body>
 </html>
+	

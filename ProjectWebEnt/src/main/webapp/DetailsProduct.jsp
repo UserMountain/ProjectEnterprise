@@ -18,13 +18,13 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-	
+  
 
     <link rel="stylesheet" href="dash.css">
     <title>Display Product</title>
 </head>
 <body>
-	<section id="header">
+  <section id="header">
         <a href="#"><img src="picture/logo3.png" class="logo" alt=""></a>
 
         <div>
@@ -53,13 +53,13 @@
     %>
     
     <section id="prodetails" class="section-p1">
-    	<br>
+      <br>
         <div class="single-pro-image">
             <img src="picture/<%= selectedProduct.getProductImage() %>" width="100%" id="MainImg" alt="">
         </div>
         <div class="single-pro-details">
         
-        <form action="addToCart" method="post">
+        <form action="AddCart" method="post">
         
             <h6>Home/T-Shirt</h6>
             <h4><%= selectedProduct.getProductName() %></h4>
@@ -79,11 +79,11 @@
                 <option>5</option>
             </select>
             
-                    <input type="hidden" name="productID" value="<%= selectedProduct.getProductID() %>">
-                    <input type="hidden" name="productImage" value="<%= selectedProduct.getProductImage() %>">
-                    <input type="hidden" name="productPrice" value="<%= selectedProduct.getProductPrice() %>">
-                    <input type="hidden" name="userID" value="<%= request.getParameter("userID") %>">
-                    <button type="submit" class="normal" name="addToCart" >Add To Cart</button>
+                    <input type="text" name="productID" value="<%= selectedProduct.getProductID() %>">
+                    <input type="text" name="productImage" value="<%= selectedProduct.getProductImage() %>">
+                    <input type="text" name="productPrice" value="<%= selectedProduct.getProductPrice() %>">
+                    <input type="text" name="userID" value="<%= request.getParameter("userID") %>">
+                    <button type="submit" class="normal" name="AddCart" >Add To Cart</button>
                 </form>
             <h4>Product Details</h4>
             <span><%= selectedProduct.getProductDesc() %></span>

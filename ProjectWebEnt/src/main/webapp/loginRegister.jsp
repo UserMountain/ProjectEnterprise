@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<%@page import="EntPackage.*"%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -56,7 +55,7 @@
        
         <div class="logreg-box">
             <div class="form-box login">
-                <form action="UsersLogin" method="post">
+                <form action="UserLogin" method="post">
                     <h2>Sign In</h2>
 
                     <div class="input-box">
@@ -86,13 +85,11 @@
                         <p>Don't have an account?<a href="#" class="register-link">
                             Sign Up</a></p>
                     </div>
-
-
                 </form>
             </div>
 
             <div class="form-box register">
-                <form action="register" method="post">
+                <form action="UserRegister" method="post">
                     <h2>Sign Up</h2>
 
                     <div class="input-box">
@@ -120,11 +117,10 @@
                     </div>
 
                     <div class="remember-forgot">
-                        <label><input type="checkbox"> I agree to the terms & conditions</label>
+                        <label><input type="checkbox"> I agree to the terms conditions</label>
                         
                     </div>
-
-                    <button type="submit" value="Register" class="btn">Sign Up</button>
+                    <button type="submit" value="" class="btn">Sign Up</button>
 
                     <div  class="login-register">
                         <p>Already have an account?<a href="#" class="login-link">
