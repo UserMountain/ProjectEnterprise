@@ -20,6 +20,7 @@ public class DeleteCart extends HttpServlet {
             throws ServletException, IOException {
         // Get the cartID to delete from the request parameter
         int cartID = Integer.parseInt(request.getParameter("cartID"));
+        int userID = Integer.parseInt(request.getParameter("userID"));
 
         try {
             String dbURL = "jdbc:mysql://localhost:3306/enterprise";
@@ -38,7 +39,7 @@ public class DeleteCart extends HttpServlet {
             conn.close();
 
             // Redirect back to the cart.jsp after successful deletion
-            response.sendRedirect("cart.jsp");
+            response.sendRedirect("cart.jsp?userID=" + userID);
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             // Handle exceptions appropriately

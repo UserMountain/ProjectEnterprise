@@ -50,7 +50,7 @@
     <table width="100%">
         <thead>
             <tr>
-                <td>Remove</td>
+            	<td>Remove</td>
                 <td>Image</td>
                 <td>Product</td>
                 <td>Price</td>
@@ -62,6 +62,7 @@
         
         
         <% 
+        double totalPrice = 0.00;
         try {
             String dbURL = "jdbc:mysql://localhost:3306/enterprise";
             String dbUser = "root";
@@ -75,7 +76,7 @@
             stmt.setInt(1, userID); // Replace 123 with the desired userID
             ResultSet rs = stmt.executeQuery();
             
-
+            
             while (rs.next()) {
                 int cartID = rs.getInt("cartID");
                 int productID = rs.getInt("productID");
@@ -88,6 +89,8 @@
                 stmt2.setInt(1, productID);
                 ResultSet rs2 = stmt2.executeQuery();
                 
+                totalPrice = totalPrice + subTotal;
+                
                 while (rs2.next()){
                 	productID = rs2.getInt("productID");
                     String productName = rs2.getString("productName");
@@ -98,12 +101,17 @@
                 
                 %>
                 <tr>
-	                <td><a href="DeleteCart?cartID=<%= cartID %>"delete-btn"><i class="far fa-times-circle"></i></a></td>
+                	
+               		<td>
+                    <form action="DeleteCart" method="get">
+                    	<a href="DeleteCart?cartID=<%= cartID %>&userID=<%=userID%>"delete-btn"><i class="far fa-times-circle"></i></a>
+                    </form>
+                    </td>
 	                <td><img src="picture/<%= productImage %>" alt=""></td>
 	                <td><%= productName %></td>
-	                <td><%= productPrice %></td>
+	                <td>RM <%= productPrice %>0</td>
                     <td><input type="number" value="<%= quantity %>"></td>
-                    <td>RM<%= subTotal %></td>
+                    <td>RM <%= subTotal %>0</td>
                     
   
                 </tr>
@@ -127,10 +135,6 @@
     </table>
 </section>
 
-
-
-
-
     <section id="cart-add" class="section-p1">
         <div id="coupon">
             <h3>Apply Coupon</h3>
@@ -140,12 +144,18 @@
             </div>
         </div>
 
+
+
+
+
+
         <div id="subtotal">
+        
             <h3>Cart Totals</h3>
             <table>
                 <tr>
                     <td>Cart Subtotal</td>
-                    <td>RM285</td>
+                    <td>RM <%= totalPrice %>0</td>
                 </tr>
                 <tr>
                     <td>Shipping</td>
@@ -153,10 +163,12 @@
                 </tr>
                 <tr>
                     <td><strong>Total</strong></td>
-                    <td><strong>RM 285</strong></td>
+                    <td><strong>RM <%= totalPrice %>0</strong></td>
                 </tr>
             </table>
             <button class="normal">Proceed to checkout</button>
+        
+            
         </div>
     </section>
 

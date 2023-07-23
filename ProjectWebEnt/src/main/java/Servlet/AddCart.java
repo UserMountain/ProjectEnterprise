@@ -28,7 +28,7 @@ public class AddCart extends HttpServlet {
         int selectedProductID = Integer.parseInt(request.getParameter("productID"));
 
         // Get the custID from the session or authentication mechanism
-        int userID = Integer.parseInt(request.getParameter("userID"));; // Replace with the actual custID retrieval
+        int userID = Integer.parseInt(request.getParameter("userID")); // Replace with the actual custID retrieval
 
         try {
             // Assuming you have already established a database connection using JDBC
