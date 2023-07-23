@@ -13,24 +13,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(name="AddCart", urlPatterns= {"/AddCart"})
-public class AddCart extends HttpServlet {
+@WebServlet(name="AddPayment", urlPatterns= {"/AddPayment"})
+public class AddPayment extends HttpServlet {
 
-    /**
-   * 
-   */
   private static final long serialVersionUID = 1L;
 
   protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        // Get size and quantity from the form
-        String selectedSize = request.getParameter("size");
-        int selectedQuantity = Integer.parseInt(request.getParameter("quantity"));
-        int selectedProductID = Integer.parseInt(request.getParameter("productID"));
-
+     
+   
         // Get the custID from the session or authentication mechanism
         int userID = Integer.parseInt(request.getParameter("userID")); // Replace with the actual custID retrieval
-        
-        
+
         try {
             // Assuming you have already established a database connection using JDBC
             Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/enterprise", "root", "root");
@@ -53,14 +46,13 @@ public class AddCart extends HttpServlet {
             double subTotal = price * selectedQuantity;
 
             // Insert data into cartDetails table
-            String insertQuery = "INSERT INTO cartItems (productID, userID, size, quantity, subTotal) VALUES (?, ?, ?, ?, ?)";
+            String insertQuery = "INSERT INTO payment (productID, userID, size, quantity, subTotal) VALUES (?, ?, ?, ?, ?)";
             PreparedStatement insertStmt = conn.prepareStatement(insertQuery);
             insertStmt.setInt(1, selectedProductID);
             insertStmt.setInt(2, userID); // Replace 'productId' with the actual product ID
             insertStmt.setString(3, selectedSize);
             insertStmt.setInt(4, selectedQuantity);
             insertStmt.setDouble(5, subTotal);
-            //insertStmt.setString(6, statusPay);
             insertStmt.executeUpdate();
 
             insertStmt.close();

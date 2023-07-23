@@ -37,6 +37,7 @@
                 <li><a href="about.jsp?userID=<%=request.getParameter("userID") %>">About</a></li>
                 <li><a href="contact.jsp?userID=<%=request.getParameter("userID") %>">Contact</a></li>
                 <li><a href="cart.jsp?userID=<%=request.getParameter("userID") %>"><i class='bx bx-cart-alt'></i></a></li>
+                <li><a class="full" href="loginRegister.jsp">Log Out</a></li>
             </ul>
         </div>
     </section>

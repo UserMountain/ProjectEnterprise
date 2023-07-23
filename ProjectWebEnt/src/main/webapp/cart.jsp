@@ -19,6 +19,18 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
     <link rel="stylesheet"href="cast.css">
+    
+    <style>
+	    .center-quantity {
+	        text-align: center;
+	    }
+	    .quantity-input {
+        width: 30px; /* Adjust the width as desired */
+        height: 30px;
+    	}
+	    
+	</style>
+    
 </head>
 
 <body>
@@ -34,6 +46,7 @@
                 <li><a href="about.jsp?userID=<%=request.getParameter("userID") %>">About</a></li>
                 <li><a href="contact.jsp?userID=<%=request.getParameter("userID") %>">Contact</a></li>
                 <li><a href="cart.jsp?userID=<%=request.getParameter("userID") %>"><i class='bx bx-cart-alt'></i></a></li>
+            	<li><a class="full" href="loginRegister.jsp">Log Out</a></li>
             </ul>
         </div>
     </section>
@@ -53,9 +66,12 @@
             	<td>Remove</td>
                 <td>Image</td>
                 <td>Product</td>
+                <td>Size</td>
                 <td>Price</td>
                 <td>Quantity</td>
                 <td>Subtotal</td>
+                <td></td>
+                <td>Update</td>
             </tr>
         </thead>
         <tbody>
@@ -101,19 +117,35 @@
                 
                 %>
                 <tr>
-                	
                		<td>
-                    <form action="DeleteCart" method="get">
-                    	<a href="DeleteCart?cartID=<%= cartID %>&userID=<%=userID%>"delete-btn"><i class="far fa-times-circle"></i></a>
-                    </form>
-                    </td>
-	                <td><img src="picture/<%= productImage %>" alt=""></td>
-	                <td><%= productName %></td>
-	                <td>RM <%= productPrice %>0</td>
-                    <td><input type="number" value="<%= quantity %>"></td>
-                    <td>RM <%= subTotal %>0</td>
-                    
-  
+				        <form action="DeleteCart" method="get">
+				            <a href="DeleteCart?cartID=<%= cartID %>&userID=<%=userID%>" class="delete-btn">
+				                <i class="far fa-times-circle"></i>
+				            </a>
+				        </form>
+				    	</td>
+				    	<td><img src="picture/<%= productImage %>" alt=""></td>
+				    	<td><%= productName %></td>
+				    	<td><%= size %></td>
+				    	<td>RM <%= productPrice %>0</td>
+				    	
+				    		<form action="UpdateCart" method="post">
+				    	<td class="center-quantity">
+					        
+					            <input class="quantity-input" type="number" name="quantity" value="<%= quantity %>" min="1">
+					            <input type="hidden" name="cartID" value="<%= cartID %>">
+					            <input type="hidden" name="userID" value="<%= userID %>">
+					            <input type="hidden" name="productPrice" value="<%= productPrice %>">
+					            <input type="hidden" name="subTotal" value="<%= subTotal %>">
+					        
+				    	</td>
+				    	<td>RM <%= subTotal %>0</td>
+				    	<td></td>
+				    	<td><input type="submit" value="Update"></td>
+				    		</form>
+				
+			    	<td>
+
                 </tr>
                 <% 
                 }
@@ -145,12 +177,7 @@
         </div>
 
 
-
-
-
-
         <div id="subtotal">
-        
             <h3>Cart Totals</h3>
             <table>
                 <tr>
@@ -166,7 +193,11 @@
                     <td><strong>RM <%= totalPrice %>0</strong></td>
                 </tr>
             </table>
-            <button class="normal">Proceed to checkout</button>
+            <form action="PaymentPage.jsp" method="post">
+            	<input type="text" name="userID" value="<%= request.getParameter("userID") %>">
+            	<input type="text" name="totalPrice" value="<%= totalPrice %>">
+            	<button type="submit" class="normal" name="AddCart">Proceed to checkout</button>
+            </form>
         
             
         </div>
