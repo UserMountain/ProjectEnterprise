@@ -1,13 +1,26 @@
+<%@ page import="ConnectionDB.DbCon" %>
+<%@ page import="EntPackage.*" %>
+<%@ page import="DaoPackage.ProductDAO" %>
+<%@page import="java.util.List"%>
+<%@page import="javax.servlet.http.HttpSession"%>
+
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+  pageEncoding="ISO-8859-1"%>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard Projects</title>
+    <title>Online Shop</title>
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
 
     <link rel="stylesheet" href="dash.css">
 
@@ -16,89 +29,66 @@
 
     <section id="header">
         <a href="#"><img src="picture/logo3.png" class="logo" alt=""></a>
-
         <div>
             <ul id="navbar">
-                <li><a href="Nav_bar.html">Home</a></li>
-                <li><a class="active" href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="cart.html"><i class='bx bx-cart-alt'></i></a></li>
+                <li><a href="Nav_bar.jsp?userID=<%=request.getParameter("userID") %>">Home</a></li>
+                <li><a class="active" href="showProducts.jsp?userID=<%=request.getParameter("userID") %>">Shop</a></li>
+                <li><a href="blog.jsp?userID=<%=request.getParameter("userID") %>">Blog</a></li>
+                <li><a href="about.jsp?userID=<%=request.getParameter("userID") %>">About</a></li>
+                <li><a href="contact.jsp?userID=<%=request.getParameter("userID") %>">Contact</a></li>
+                <li><a href="cart.jsp?userID=<%=request.getParameter("userID") %>"><i class='bx bx-cart-alt'></i></a></li>
             </ul>
         </div>
     </section>
         
-    <section id="prodetails" class="section-p1">
-        <div class="single-pro-image">
-            <img src="picture/Product_1.png" width="100%" id="MainImg" alt="">
-        </div>
-        <div class="single-pro-details">
-            <h6>Home/T-Shirt</h6>
-            <h4>Jersey</h4>
-            <h2>RM 50.00</h2>
-            <h6>Size: </h6><select id=Product_1Size>
-                <option>XS</option>
-                <option>S>
-                <option>M</option>
-                <option>L</option>
-                <option>XL</option>
-            </select>
-           <h6>Quantity: </h6><select id=Product_1Quantity>
-                <option>1</option>
-                <option>2>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-            </select>
-            <button class="normal">Add To Cart</button>
-            <h4>Product Details</h4>
-            <span>The power of the god. This shirt is suitable in war situation!</span>
-        </div>
+
+    <section id="home">
+        <a href="#"><img src="picture/home.jpg" class="logo" alt=""></a>
     </section>
 
-    <section id="product1" class="section-p1">
-        <h2>UITM Collabration</h2>
-        <p>High Quality Microfiber And More Formal</p>
-        <div class="pro-container">
-            <div class="pro">
-                <img src="picture/Product_1.png" alt="">
-                <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
-                    <div class="star">
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                    </div>
-                    <h4>RM 50.00</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart-alt cart'></i></a>
-            </div>
-
-            <div class="pro">
-                <img src="picture/product1.jpg" alt="">
-                <div class="des">
-                    <span>Superstrike</span>
-                    <h5>Jersey</h5>
-                    <div class="star">
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                    </div>
-                    <h4>RM 50.00</h4>
-                </div>
-                <a href="#"><i class='bx bx-cart-alt cart'></i></a>
-            </div>
-
-        </div>
-    </section>
-   
+    <section id="product1">
     
+    
+        <div class="pro-container">
+            
+            <%
+        
+         ProductDAO productDAO = new ProductDAO();
+        List<Product> products = productDAO.getAllProducts();
+
+         for (Product product : products) {
+        %>
+            <div class="pro" >
+                <img src="picture/<%= product.getProductImage() %>" width="100%" id="MainImg" alt="">
+                <div class="des">
+                    <span>Superstrike</span>
+                    <h5><%= product.getProductName() %></h5>
+                    <div class="star">
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                        <i class='bx bx-star'></i>
+                    </div>
+                    <h4><%= product.getProductPrice() %></h4>
+               
+                </div>
+                <form action="TestingDisplayProduct" method="get">
+                    <input type="hidden" name="productID" value="<%= product.getProductID() %>">
+                    <input type="hidden" name="userID" value="<%= request.getParameter("userID") %>">
+
+                </form>
+                <a href="DetailsProduct.jsp?productID=<%=product.getProductID()%>&productName=<%=product.getProductName()%>&productPrice=<%=product.getProductPrice()%>&productCategory=<%=product.getProductCategory()%>&productDesc=<%=product.getProductDesc()%>
+                &productImage=<%=product.getProductImage()%>&userID=<%=request.getParameter("userID") %>"><input type="submit" value="View Details"></a>
+            </div>
+             <%
+            }
+        %>
+            
+
+        </div>
+    </section>
+
 
     <section id="newsletter" class="section-p1 section-m1">
         <div class="newstext">
@@ -131,11 +121,11 @@
         </div>
 
         <div class="col">
-            <h4>Company</h4>
-            <a href="#">About Us</a>
-            <a href="#">Blog</a>
+              <h4>Company</h4>
+            <a href="about.html">About Us</a>
+           	<a href="blog.html">Blog</a>
             <a href="#">Privacy Policy</a>
-            <a href="#">Contact Us</a>
+            <a href="contact.html">Contact Us</a>
         </div>
 
         <div class="col install">
@@ -152,12 +142,6 @@
         </div>
 
     </footer>
-
-    <script>
-        var MainImg = document.getElementById("MainImg");
-
-
-    </script>
 
 
     <script src="dash.css"></script>

@@ -41,7 +41,7 @@ public class UserLogin extends HttpServlet {
     }
     
     if (check == true)
-      response.sendRedirect( "showProduct.jsp?userID=" + userID);
+      response.sendRedirect( "showProducts.jsp?userID=" + userID);
     
     else if (check == false)
       response.sendRedirect("loginRegister.jsp");

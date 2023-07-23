@@ -29,12 +29,12 @@
 
         <div>
             <ul id="navbar">
-                <li><a href="Nav_bar.html">Home</a></li>
-                <li><a class="active" href="shop.html">Shop</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="cart.html"><i class='bx bx-cart-alt'></i></a></li>
+                <li><a href="Nav_bar.jsp?userID=<%=request.getParameter("userID") %>">Home</a></li>
+                <li><a class="active" href="showProducts.jsp?userID=<%=request.getParameter("userID") %>">Shop</a></li>
+                <li><a href="blog.jsp?userID=<%=request.getParameter("userID") %>">Blog</a></li>
+                <li><a href="about.jsp?userID=<%=request.getParameter("userID") %>">About</a></li>
+                <li><a href="contact.jsp?userID=<%=request.getParameter("userID") %>">Contact</a></li>
+                <li><a href="cart.jsp?userID=<%=request.getParameter("userID") %>"><i class='bx bx-cart-alt'></i></a></li>
             </ul>
         </div>
     </section>
