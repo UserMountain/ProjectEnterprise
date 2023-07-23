@@ -1,0 +1,141 @@
+body {
+  font-family: 'Montserrat', sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(135deg, #00E889, #CCF8E1);
+}
+
+.f {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 0;
+  /* Apply the gradient blue-purple color to 'Receipt' */
+  background: linear-gradient(135deg, #4F74E2, #B044FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative; /* Add this to create a positioning context for the underline */
+}
+
+.f::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Adjust the vertical position of the underline */
+  left: 0;
+  right: 0;
+  height: 2px; /* Set the height of the underline */
+  background: linear-gradient(135deg, #4F74E2, #B044FF);
+}
+
+.receiptContainer {
+  display: flex;
+  align-items: flex-start; /* Align items at the top */
+  flex-direction: column;
+}
+
+.page {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  position: relative; /* Add this to create a positioning context for the image */
+}
+
+.logo {
+  width: 40%; /* Make the image slightly smaller */
+  max-height: 80px; /* Set a maximum height for the image to maintain its aspect ratio */
+  display: block;
+  margin: 10px auto; /* Add some margin to center the image horizontally */
+}
+
+.underline {
+  background: linear-gradient(135deg, #4F74E2, #B044FF);
+  content: "";
+  display: block;
+  height: 2px; /* Set the height of the underline */
+  width: 100%; /* Make the underline cover the entire heading width */
+}
+.address {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.shipping-info {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.shipping-info div {
+  flex-basis: 30%;
+}
+
+.shipping-info h6 {
+  margin: 0;
+}
+
+hr {
+  height: 1px;
+  border: none;
+  background-color: #d1d1d1;
+  margin: 10px 0;
+}
+
+.main-strip, .shipping-item, .total {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr 1fr;
+  justify-items: center;
+  margin-bottom: 5px;
+  background-color: rgba(255, 255, 255, 0.8); /* Transparent white background */
+  border-radius: 5px;
+  padding: 5px; /* Add some padding */
+}
+
+.main-strip h6, .shipping-item p, .total p {
+  margin: 0;
+  font-size: 0.8rem;
+}
+
+.shipping-item:last-child, .total:last-child {
+  font-weight: bold;
+}
+
+.theTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  flex-direction: column-reverse;
+}
+
+
+.theTitle h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2rem;
+  margin: 0;
+  background: linear-gradient(135deg, #4F74E2, #B044FF);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 0px #000;
+}
+
+.separator {
+  height: 1px;
+  width: 100%;
+  background-color: #d1d1d1;
+  margin: 0 10px;
+}
+
+.right {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+/* Responsive CSS */
+@media screen and (max-width: 450px) {
+  .page {
+    max-width: 90%;
+  }
+}
