@@ -121,7 +121,7 @@ public class Receipt extends HttpServlet {
             out.println("    <hr class=\"bottom\">");
                         
             Statement collectStmt = conn.createStatement();
-            String sql = "SELECT productID, size, quantity FROM cartItems WHERE userID =" + userID;
+            String sql = "SELECT productID, size, quantity, subTotal FROM cartItems WHERE userID =" + userID;
             ResultSet rs = collectStmt.executeQuery(sql);
             
             while(rs.next()) {
@@ -129,38 +129,40 @@ public class Receipt extends HttpServlet {
             	int productID = rs.getInt("productID");
             	String size = rs.getString("size");
             	int quantity = rs.getInt("quantity");
+            	double subTotal = rs.getDouble("subTotal");
             	//double productPrice = rs.getDouble("productPrice");
             	
             	out.println("    <div class=\"shipping-item\">");
                 out.println("      <p>" + quantity + "</p>");
    
                 Statement collectStmt2 = conn.createStatement();
-                String sql2 = "SELECT productName FROM product WHERE productID =" + productID;
+                String sql2 = "SELECT productName, productPrice FROM product WHERE productID =" + productID;
                 ResultSet rs2 = collectStmt2.executeQuery(sql2);
                 
                 while(rs2.next()) {
                 	
                 	String productName = rs2.getString("productName");
+                	double productPrice = rs2.getDouble("productPrice");
                 	
                 	out.println("      <p>" + productName + "</p>");
-                    out.println("      <p>RM65.00</p>");         
+                    out.println("      <p>RM " + productPrice + "</p>");         
       
                 }
                 rs2.close();
                 collectStmt2.close();
 
-                out.println("      <p>" + size + "</p>");
+                out.println("      <p>RM " + subTotal + "</p>");
                 out.println("    </div>");
                                
             }                 
                                              
             out.println("    <div class=\"total\">");
             out.println("      <p>Subtotal</p>");
-            out.println("      <p>" + totalPrice + "</p>");
+            out.println("      <p>RM " + totalPrice + "</p>");
             out.println("    </div>");
             out.println("    <div class=\"total\">");
             out.println("      <h6>TOTAL</h6>");
-            out.println("      <h6>" + totalPrice + "</h6>");
+            out.println("      <h6>RM " + totalPrice + "</h6>");
             out.println("    </div>");
             out.println("    <div class=\"theTitle active\">");
             out.println("      <div class=\"left\">");
@@ -168,7 +170,7 @@ public class Receipt extends HttpServlet {
             out.println("      </div>");
             out.println("      <span class=\"separator\"></span>");
             out.println("      <div class=\"right\">");
-            out.println("        <p>Payment is due within 15 days.</p>");
+            out.println("        <p>Have a nice days!</p>");
             out.println("      </div>");
             out.println("    </div>");
             out.println("  </div>");
