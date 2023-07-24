@@ -126,12 +126,32 @@
 				    	</td>
 				    	<td><img src="picture/<%= productImage %>" alt=""></td>
 				    	<td><%= productName %></td>
-				    	<td><%= size %></td>
-				    	<td>RM <%= productPrice %>0</td>
 				    	
-				    		<form action="UpdateCart" method="post">
+				    <form action="UpdateCart" method="post">
+				    
+				    	<td>
+				    	<select name="size">
+				    			<option><%=size %></option>
+				    		<% if (!size.equals("XS")) { %>
+						        <option value="XS">XS</option>
+						    <% } %>
+						    <% if (!size.equals("S")) { %>
+						        <option value="S">S</option>
+						    <% } %>
+						    <% if (!size.equals("M")) { %>
+						        <option value="M">M</option>
+						    <% } %>
+						    <% if (!size.equals("L")) { %>
+						        <option value="L">L</option>
+						    <% } %>
+						    <% if (!size.equals("XL")) { %>
+						        <option value="XL">XL</option>
+						    <% } %>
+				    	</select>
+				    	</td>
+				    	<td>RM <%= productPrice %>0</td>
 				    	<td class="center-quantity">
-					        
+					        	<input type="hidden" name="size" value="<%= size %>">
 					            <input class="quantity-input" type="number" name="quantity" value="<%= quantity %>" min="1">
 					            <input type="hidden" name="cartID" value="<%= cartID %>">
 					            <input type="hidden" name="userID" value="<%= userID %>">
@@ -142,7 +162,7 @@
 				    	<td>RM <%= subTotal %>0</td>
 				    	<td></td>
 				    	<td><input type="submit" value="Update"></td>
-				    		</form>
+				    </form>
 				
 			    	<td>
 
