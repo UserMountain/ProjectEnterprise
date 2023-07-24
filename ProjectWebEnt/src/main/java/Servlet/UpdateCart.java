@@ -22,6 +22,7 @@ public class UpdateCart extends HttpServlet {
         int cartID = Integer.parseInt(request.getParameter("cartID"));
         int updatedQuantity = Integer.parseInt(request.getParameter("quantity"));
         int userID = Integer.parseInt(request.getParameter("userID"));
+        String updatedSize = request.getParameter("size");
         double productPrice = Double.parseDouble(request.getParameter("productPrice"));
         double subTotal = Double.parseDouble(request.getParameter("subTotal"));
         // Update the cart item in the database
@@ -35,10 +36,11 @@ public class UpdateCart extends HttpServlet {
 
             Class.forName("com.mysql.jdbc.Driver");
             try (Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword)) {
-                PreparedStatement stmt = conn.prepareStatement("UPDATE cartItems SET quantity = ?, subTotal = ? WHERE cartID = ?");
-                stmt.setInt(1, updatedQuantity);
-                stmt.setDouble(2, subTotal);
-                stmt.setInt(3, cartID);
+                PreparedStatement stmt = conn.prepareStatement("UPDATE cartItems SET size = ?, quantity = ?, subTotal = ? WHERE cartID = ?");
+                stmt.setString(1, updatedSize);
+                stmt.setInt(2, updatedQuantity);
+                stmt.setDouble(3, subTotal);
+                stmt.setInt(4, cartID);
 
                 // Execute the update operation
                 stmt.executeUpdate();
