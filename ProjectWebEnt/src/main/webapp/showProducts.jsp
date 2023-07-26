@@ -123,10 +123,10 @@
 
         <div class="col">
               <h4>Company</h4>
-            <a href="about.html">About Us</a>
-           	<a href="blog.html">Blog</a>
+            <a href="#">About Us</a>
+           	<a href="#">Blog</a>
             <a href="#">Privacy Policy</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="#">Contact Us</a>
         </div>
 
         <div class="col install">

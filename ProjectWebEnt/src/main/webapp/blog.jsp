@@ -25,8 +25,8 @@
         <div>
             <ul id="navbar">
                 <li><a href="Nav_bar.jsp?userID=<%=request.getParameter("userID") %>">Home</a></li>
-                <li><a class="active" href="showProducts.jsp?userID=<%=request.getParameter("userID") %>">Shop</a></li>
-                <li><a href="blog.jsp?userID=<%=request.getParameter("userID") %>">Blog</a></li>
+                <li><a href="showProducts.jsp?userID=<%=request.getParameter("userID") %>">Shop</a></li>
+                <li><a class="active" href="blog.jsp?userID=<%=request.getParameter("userID") %>">Blog</a></li>
                 <li><a href="about.jsp?userID=<%=request.getParameter("userID") %>">About</a></li>
                 <li><a href="contact.jsp?userID=<%=request.getParameter("userID") %>">Contact</a></li>
                 <li><a href="cart.jsp?userID=<%=request.getParameter("userID") %>"><i class='bx bx-cart-alt'></i></a></li>
@@ -40,14 +40,31 @@
         <p>Look at the design in our page here</p>
     </section>
 
+    <section id="video-section">
+        <div class="video-container">
+            <video controls autoplay loop muted>
+                <source src="vid/ShirtLaunch.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        <div class="video-promo">
+            <h2>New Arrivals!</h2>
+            <p>Check out our latest collection of trendy and stylish clothing.</p>
+            <p>Get ready to elevate your wardrobe with our unique designs.</p>
+        </div>
+    </section>
+
     <section id="blog">
         <div class="blog-box">
             <div class="blog-img">
-                <img src="picture/product_1" alt="">
+                <img src="picture/NewUpdate1.jpg" alt="">
             </div>
             <div class="blog-details">
-                <h4>Ireng Flower Design</h4>
-                <p>Lorem ipsum dafas fasfasfas fasf as fas af as fasf asfa sfa</p>
+                <h4>UITM X HIPSTRIKE</h4>
+                <p>Hello and greetings everyone,
+					Update for UiTM shirts: The shirts are 90% ready and will be shipped next week as soon as possible 
+					There was a slight delay in production due to a high quantity of orders.
+					Thank you for your understanding, we are doing our best for the shipping process</p>
                 <a href="#">CONTINUE READING</a>
             </div>
             <h1>13/01</h1>
@@ -55,11 +72,19 @@
 
         <div class="blog-box">
             <div class="blog-img">
-                <img src="picture/product_2" alt="">
+                <img src="picture/NewUpdate2.jpg" alt="">
             </div>
             <div class="blog-details">
-                <h4>White with Black Patern</h4>
-                <p>Lorem ipsum dafas fasfasfas fasf as fas af as fasf asfa sfa</p>
+                <h4>MMU x HIPSTRIKE</h4>
+                <p>Hey everyone, MMU x HIPSTRIKE is now ready for you 
+				ORDER NOW 
+				HIPSTRIKE x MMU OFFICIAL JERSEY
+				100PCS ONLY
+				SPECIAL PRICE FOR FIRST 50 BUYERS
+				EXCLUSIVE FEATURES FOR THIS COLLAB 
+				Each purchase comes with a BLACK ZIPLOCK PACKAGING
+				Open for all 
+				</p>
                 <a href="#">CONTINUE READING</a>
             </div>
             <h1>13/01</h1>
@@ -67,11 +92,17 @@
 
         <div class="blog-box">
             <div class="blog-img">
-                <img src="picture/product_3" alt="">
+                <img src="picture/NewUpdate3.jpg" alt="">
             </div>
             <div class="blog-details">
-                <h4>Red With Black Stripe Design</h4>
-                <p>Lorem ipsum dafas fasfasfas fasf as fas af as fasf asfa sfa</p>
+                <h4>HIPSTRIKE x UM UPDATE</h4>
+                <p>
+				Hey everyone, UM PREMIUM TEE is now ready for you
+				Currently, our team is sorting and managing stocks to deliver the shirts to you 
+				Thanks to all who have supported us
+				GET READY FOR THE WINNER ANNOUNCEMENT OF THE AIRPODS PRO THIS WEEK 
+				For those who joined the UM PREMIUM TEE order, stay tuned!
+				</p>
                 <a href="#">CONTINUE READING</a>
             </div>
             <h1>13/01</h1>
@@ -79,11 +110,17 @@
 
         <div class="blog-box">
             <div class="blog-img">
-                <img src="picture/product_4" alt="">
+                <img src="picture/NewUpdate5.jpg" alt="">
             </div>
             <div class="blog-details">
-                <h4>The Cotton-Jersey Zip-up Hoodie</h4>
-                <p>Lorem ipsum dafas fasfasfas fasf as fas af as fasf asfa sfa</p>
+                <h4>UITM V1 & V2 SHIRT COLAB</h4>
+                <p>LAST BATCH FOR UiTM V1 & V2
+				Last chance to buy Jersey Hipstrike UiTM V1 & V2
+				Don't worry, grab it now 
+				Stay tuned for SPECIAL PROMO updates 
+				Limited slots for AGENT available
+				Want to earn 4-5 figures with us? Stay tuned 
+				</p>
                 <a href="#">CONTINUE READING</a>
             </div>
             <h1>13/01</h1>
@@ -125,10 +162,10 @@
 
         <div class="col">
            <h4>Company</h4>
-            <a href="about.html">About Us</a>
-           	<a href="blog.html">Blog</a>
+            <a href="#">About Us</a>
+           	<a href="#">Blog</a>
             <a href="#">Privacy Policy</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="#">Contact Us</a>
         </div>
 
         <div class="col install">
@@ -147,7 +184,7 @@
     </footer>
 
 
-    <script src="dash.css"></script>
+    <script src="Blogdash.css"></script>
 </body>
 
 </html>

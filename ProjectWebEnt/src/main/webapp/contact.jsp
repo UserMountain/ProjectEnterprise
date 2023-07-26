@@ -22,10 +22,10 @@
         <div>
             <ul id="navbar">
                 <li><a href="Nav_bar.jsp?userID=<%=request.getParameter("userID") %>">Home</a></li>
-                <li><a class="active" href="showProducts.jsp?userID=<%=request.getParameter("userID") %>">Shop</a></li>
+                <li><a href="showProducts.jsp?userID=<%=request.getParameter("userID") %>">Shop</a></li>
                 <li><a href="blog.jsp?userID=<%=request.getParameter("userID") %>">Blog</a></li>
                 <li><a href="about.jsp?userID=<%=request.getParameter("userID") %>">About</a></li>
-                <li><a href="contact.jsp?userID=<%=request.getParameter("userID") %>">Contact</a></li>
+                <li><a class="active" href="contact.jsp?userID=<%=request.getParameter("userID") %>">Contact</a></li>
                 <li><a href="cart.jsp?userID=<%=request.getParameter("userID") %>"><i class='bx bx-cart-alt'></i></a></li>
             	<li><a class="full" href="loginRegister.jsp">Log Out</a></li>
             </ul>
@@ -115,10 +115,10 @@
 
         <div class="col">
             <h4>Company</h4>
-            <a href="about.html">About Us</a>
-           	<a href="blog.html">Blog</a>
+            <a href="#">About Us</a>
+           	<a href="#">Blog</a>
             <a href="#">Privacy Policy</a>
-            <a href="contact.html">Contact Us</a>
+            <a href="#">Contact Us</a>
         </div>
 
         <div class="col install">

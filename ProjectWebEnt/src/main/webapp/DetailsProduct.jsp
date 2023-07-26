@@ -30,7 +30,7 @@
         <div>
             <ul id="navbar">
                 <li><a href="Nav_bar.jsp?userID=<%=request.getParameter("userID") %>">Home</a></li>
-                <li><a class="active" href="showProducts.jsp?userID=<%=request.getParameter("userID") %>">Shop</a></li>
+                <li><a class="active"  href="showProducts.jsp?userID=<%=request.getParameter("userID") %>">Shop</a></li>
                 <li><a href="blog.jsp?userID=<%=request.getParameter("userID") %>">Blog</a></li>
                 <li><a href="about.jsp?userID=<%=request.getParameter("userID") %>">About</a></li>
                 <li><a href="contact.jsp?userID=<%=request.getParameter("userID") %>">Contact</a></li>

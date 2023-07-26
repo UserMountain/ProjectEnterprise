@@ -43,7 +43,7 @@ public class staffLoginServlet extends HttpServlet {
     }
     
     if (check == true)
-      response.sendRedirect( "AdminCRUD.jsp?stafID=" + stafID);
+      response.sendRedirect( "Admin Page.html?stafID=" + stafID);
     
     else if (check == false)
     	request.setAttribute("loginSuccess", check);
