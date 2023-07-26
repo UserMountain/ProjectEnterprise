@@ -76,17 +76,24 @@
 
                     <div class="remember-forgot">
                         <label><input type="checkbox"> Remember me</label>
-                        <a href="#">Forget Password?</a>
+                        <a href="#">Forget Password?</a>                                                                                                                                                                                                      
                     </div>
 
                     <button type="submit" class="btn">Sign In</button>
-
+                    <% if (request.getAttribute("loginSuccess") != null && !(Boolean) request.getAttribute("loginSuccess")) { %>
+			            <div class="error-panel">
+			                <p>Email or Password Invalid!</p>
+			            </div>
+			        <% } %>
+					
                 </form>
+               
+            </div> 
             </div>
 
         </div>
-    </div>
-
+    
+    			
     <script src="index.js"></script>
     
 </body>

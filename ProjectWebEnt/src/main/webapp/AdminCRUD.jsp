@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-<%@ page import="java.sql.*" %>
-<%@ page import="DaoPackage.CartItemDAO" %>
-<%@page import="java.util.List"%>
-<%@ page import="EntPackage.*" %>
-
     <!DOCTYPE html>
 <html>
 <head>
@@ -49,7 +44,7 @@
 	    </div>
 	
 	    <div class="input-box">
-	      <label class="label">Clothing Category:</label>
+	      <label class="label">Clothing Type:</label>
 	      <input type="text" name="productCategory" placeholder="Enter clothing type (e.g. shirt, pants, etc.)" required class="input" />
 	    </div>
 	
@@ -58,7 +53,10 @@
 	        <label class="label">Price:</label>
 	        <input type="number" name="productPrice" placeholder="Enter price in MYR" required class="input" />
 	      </div>
-	      
+	      <div class="input-box">
+	        <label class="label">Stock Quantity:</label>
+	        <input type="number" name="stock_quantity" placeholder="Enter stock quantity" required class="input" />
+	      </div>
 	    </div>
 	
 	    <div class="input-box">
@@ -74,79 +72,44 @@
 	    <!-- Buttons for Create and Update operations -->
 	    <div class="buttons">
 	      <button type="submit" name="addProduct" class="button">Add Clothing to Shop</button>
+	      <button type="submit" name="update" class="button">Update Clothing in Shop</button>
 	    </div>
 	  </form>
-	  
-	  
-	  
 	  <div class="col-15 mt-5">
 	      <table class="table table-striped table-red">
 	        <thead>
 	          <tr>
 	            <th>ID</th>
 	            <th>Cloth's name</th>
-	            <th>Category</th>
+	            <th>Type</th>
 	            <th>Price</th>
-	            <th>ImageURL</th>
+	            <th>Qtty</th>
 	            <th>Actions</th>
 	          </tr>
 	        </thead>
 	        <tbody class="student-list">
-	        
-	        
-	        <%
-	        	try {
-	        		String dbURL = "jdbc:mysql://localhost:3306/enterprise";
-	                String dbUser = "root";
-	                String dbPassword = "root";
-	                
-	                Class.forName("com.mysql.jdbc.Driver");
-	                Connection conn = DriverManager.getConnection(dbURL, dbUser, dbPassword);
-	                PreparedStatement stmt = conn.prepareStatement("SELECT * FROM product");
-	               
-	                ResultSet rs = stmt.executeQuery();
-	                
-	                while(rs.next()){
-	                	int productID = rs.getInt("productID");
-	                    String productName = rs.getString("productName");
-	                    double productPrice = rs.getInt("productPrice");
-	                    String productCategory = rs.getString("productCategory");
-	                    String productDesc = rs.getString("productDesc");
-	                    String productImage = rs.getString("productImage");
-	                    
-	                %>
-	                    
-	                    <tr>
-	    	            <td><%= productID %></td>
-	    	            <td><%= productName %></td>
-	    	            <td><%= productCategory %></td>
-	    	            <td><%= productDesc %></td>
-	    	            <td><%= productImage %></td>
-	    	            <td>
-	    	            
-	    	              <a href="" class="btn btn-danger btn-sm delete">Edit</a>
-	    	              
-	    	              <form action="deleteProduct" method="get">
-	    	              <a href="deleteProduct?productID=<%= productID %>" class="btn btn-warning btn-sm edit">Delete</a>
-	    	            </form>
-	    	            </td>
-	    	          </tr>
-	                    
-	                    
-	                 <% 
-	                	}
-	                rs.close();
-	                stmt.close();
-	       
-	        		}catch (SQLException | ClassNotFoundException e) {
-	                    e.printStackTrace();
-	                    // Handle exceptions appropriately
-	                }
-	        		%>
-	        
-	        
-	         
-	          
+	          <tr>
+	            <td>001</td>
+	            <td>Black Flora</td>
+	            <td>Shirt</td>
+	            <td>RM60</td>
+	            <td>4</td>
+	            <td>
+	              <a href="" class="btn btn-warning btn-sm edit">Edit</a>
+	              <a href="" class="btn btn-danger btn-sm delete">Delete</a>
+	            </td>
+	          </tr>
+	          <tr>
+	            <td>002</td>
+	            <td>Hoodie Black</td>
+	            <td>Shirt</td>
+	            <td>RM110</td>
+	            <td>2</td>
+	            <td>
+	              <a href="" class="btn btn-warning btn-sm edit">Edit</a>
+	              <a href="" class="btn btn-danger btn-sm delete">Delete</a>
+	            </td>
+	          </tr>
 	
 	      </table>
 	 	 </div>

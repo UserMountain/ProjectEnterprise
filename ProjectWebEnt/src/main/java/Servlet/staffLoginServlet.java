@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name="staffLoginServlet", urlPatterns= {"/staffLoginServlet"})
 public class staffLoginServlet extends HttpServlet {
@@ -17,8 +18,9 @@ public class staffLoginServlet extends HttpServlet {
   PrintWriter out = response.getWriter();
   String checkEmail = request.getParameter("staffEmail");
   String checkPassword = request.getParameter("staffPassword");
-  int staffID = 0;
+  int stafID = 0;
   boolean check = false;
+  String errorMessage = "";
   
   try {
     Class.forName("com.mysql.jdbc.Driver");
@@ -31,7 +33,7 @@ public class staffLoginServlet extends HttpServlet {
     while(rs.next()) {
       String email = rs.getString("staffEmail");
       String password = rs.getString("staffPassword");
-      staffID = rs.getInt("staffID");
+      stafID = rs.getInt("stafID");
       
       if(email.equalsIgnoreCase(checkEmail) && password.equalsIgnoreCase(checkPassword)) 
       {
@@ -41,12 +43,15 @@ public class staffLoginServlet extends HttpServlet {
     }
     
     if (check == true)
-      response.sendRedirect( "staffDashboard.jsp?staffID=" + staffID);
+      response.sendRedirect( "AdminCRUD.jsp?stafID=" + stafID);
     
     else if (check == false)
-      response.sendRedirect("staffLogin.jsp");
-  }
-  catch(Exception e2) {
+    	request.setAttribute("loginSuccess", check);
+
+ // Redirect to login.jsp
+    	request.getRequestDispatcher("staffLogin.jsp").forward(request, response);
+	  }
+  		catch(Exception e2) {
     System.out.println(e2);
   }
   out.close();
