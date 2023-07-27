@@ -29,7 +29,7 @@
 	      <header class="header">
 		  <nav class="navbar">
 	  	  <a href="Admin Page.html" class="home-button">Home</a>
-	 	  <a href="loginRegister.jsp" class="logout-button">Log out</a>
+	 	  <a href="mainPage.html" class="logout-button">Log out</a>
 		  </nav>
 		  </header>
 	      
@@ -50,7 +50,7 @@
 	
 	    <div class="input-box">
 	      <label class="label">Clothing Category:</label>
-	      <input type="text" name="productCategory" placeholder="Enter clothing type (e.g. shirt, pants, etc.)" required class="input" />
+	      <input type="text" name="productCategory" placeholder="Enter clothing type (e.g. jersey, polo etc.)" required class="input" />
 	    </div>
 	
 	    <div class="column">
@@ -67,8 +67,8 @@
 	    </div>
 	
 	    <div class="input-box">
-	      <label class="label">Image URL:</label>
-	      <input type="text" name="productImage" placeholder="Enter image URL" required class="input" />
+	      <label class="label">Image JPG:</label>
+	      <input type="text" name="productImage" placeholder="Enter image JPG" required class="input" />
 	    </div>
 	
 	    <!-- Buttons for Create and Update operations -->
@@ -87,7 +87,7 @@
 	            <th>Cloth's name</th>
 	            <th>Category</th>
 	            <th>Price</th>
-	            <th>ImageURL</th>
+	            <th>Image(JPG)</th>
 	            <th>Actions</th>
 	          </tr>
 	        </thead>
@@ -120,7 +120,7 @@
 	    	            <td><%= productID %></td>
 	    	            <td><%= productName %></td>
 	    	            <td><%= productCategory %></td>
-	    	            <td><%= productDesc %></td>
+	    	            <td><%= productPrice %></td>
 	    	            <td><%= productImage %></td>
 	    	            <td>
 	    	            
