@@ -71,7 +71,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4><%= product.getProductPrice() %></h4>
+                    <h4>RM <%= product.getProductPrice() %>0</h4>
                
                 </div>
                 <form action="TestingDisplayProduct" method="get">

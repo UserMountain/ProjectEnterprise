@@ -56,7 +56,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM 76.00</h4>
+                    <h4>RM 70.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -73,7 +73,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM 76.00</h4>
+                    <h4>RM 60.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -140,7 +140,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM 49.00</h4>
+                    <h4>RM 50.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -157,7 +157,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM 49.00</h4>
+                    <h4>RM 50.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -174,7 +174,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM 49.00</h4>
+                    <h4>RM 50.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -192,7 +192,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM 49.00</h4>
+                    <h4>RM 50.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -210,7 +210,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM 49.00</h4>
+                    <h4>RM 50.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -228,7 +228,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM 49.00</h4>
+                    <h4>RM 50.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -246,7 +246,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM 49.00</h4>
+                    <h4>RM 50.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>
@@ -263,7 +263,7 @@
                         <i class='bx bx-star'></i>
                         <i class='bx bx-star'></i>
                     </div>
-                    <h4>RM 70.00</h4>
+                    <h4>RM 80.00</h4>
                 </div>
                 <a href="#"><i class='bx bx-cart-alt cart'></i></a>
             </div>

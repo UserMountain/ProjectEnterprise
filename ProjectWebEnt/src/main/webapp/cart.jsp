@@ -214,8 +214,8 @@
                 </tr>
             </table>
             <form action="PaymentPage.jsp" method="post">
-            	<input type="text" name="userID" value="<%= request.getParameter("userID") %>">
-            	<input type="text" name="totalPrice" value="<%= totalPrice %>">
+            	<input type="hidden" name="userID" value="<%= request.getParameter("userID") %>">
+            	<input type="hidden" name="totalPrice" value="<%= totalPrice %>">
             	<button type="submit" class="normal" name="AddCart">Proceed to checkout</button>
             </form>
         
