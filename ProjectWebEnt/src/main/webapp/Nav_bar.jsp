@@ -12,6 +12,7 @@
 	<title>Dashboard Project</title>
 
     <link rel="stylesheet" href="dash.css">
+    
 </head>
 <body>
 

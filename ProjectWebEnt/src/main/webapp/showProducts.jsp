@@ -3,11 +3,8 @@
 <%@ page import="DaoPackage.ProductDAO" %>
 <%@page import="java.util.List"%>
 <%@page import="javax.servlet.http.HttpSession"%>
-
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
   pageEncoding="ISO-8859-1"%>
-
-
 
 <!DOCTYPE html>
 <html lang="en">

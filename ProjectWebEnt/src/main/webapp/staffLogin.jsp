@@ -11,13 +11,35 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+	
+	<script src="backNoWork.js" type="text/javascript"></script>
+    
 </head>
 
 <body>
 
+<%
+   response.setHeader("Pragma", "no-cache");
+   response.setHeader("Cache-Control", "no-store");
+   response.setHeader("Expires", "0");
+   response.setDateHeader("Expires", -1);
+   session.invalidate();
+   %>
+
+<% 
+  String status = (String) request.getAttribute("status");
+  if (status != null) {
+%>
+  <input type="hidden" id="status" value="<%= status %>">
+<%
+  }
+%>
+
     <header class="header">
         <nav class="navbar">
-            <a href="#">Home</a>
+            <a href="mainPage.html">Home Page</a>
             <a href="#">About</a>
             <a href="#">Services</a>
             <a href="#">Contact</a>
@@ -80,11 +102,6 @@
                     </div>
 
                     <button type="submit" class="btn">Sign In</button>
-                    <% if (request.getAttribute("loginSuccess") != null && !(Boolean) request.getAttribute("loginSuccess")) { %>
-			            <div class="error-panel">
-			                <p>Email or Password Invalid!</p>
-			            </div>
-			        <% } %>
 					
                 </form>
                
@@ -92,7 +109,14 @@
             </div>
 
         </div>
-    
+        
+        <script type="text/javascript">
+    	var status = document.getElementById("status").value;
+    	if(status == "failed"){
+    		swal("Sorry", "Wrong Username or Password", "failed");
+    	}
+    	</script>
+
     			
     <script src="index.js"></script>
     

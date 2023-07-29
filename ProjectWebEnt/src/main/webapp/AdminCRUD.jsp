@@ -28,7 +28,7 @@
 	      <header class="header">
 		  <nav class="navbar">
 	  	  <a href="Admin Page.html" class="home-button">Home</a>
-	 	  <a href="mainPage.html" class="logout-button">Log out</a>
+	 	  <a href="staffLogin.jsp" class="logout-button">Log out</a>
 		  </nav>
 		  </header>
 	      
