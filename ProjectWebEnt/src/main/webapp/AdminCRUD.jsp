@@ -37,10 +37,7 @@
 	      
 	      <form action="addProduct" class="form" method="post">
 	        <!-- For updating existing clothing data -->
-	        <div class="input-box">
-	          <label class="label">Clothing ID:</label>
-	          <input type="text" name="productID" placeholder="Enter clothing ID (if updating)" class="input" />
-	        </div>
+	        
 	            <!-- For creating or updating clothing data -->
 	    <div class="input-box">
 	      <label class="label">Clothing Name:</label>
