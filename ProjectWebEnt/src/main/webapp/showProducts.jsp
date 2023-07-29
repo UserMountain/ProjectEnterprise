@@ -65,11 +65,11 @@
                     <span>Superstrike</span>
                     <h5><%= product.getProductName() %></h5>
                     <div class="star">
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
-                        <i class='bx bx-star'></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
+                        <i class='bx bxs-star' ></i>
                     </div>
                     <h4>RM <%= product.getProductPrice() %>0</h4>
                
