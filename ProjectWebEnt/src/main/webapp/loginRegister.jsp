@@ -11,10 +11,22 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
+    
 </head>
 
 <body>
 
+	<% 
+  String status = (String) request.getAttribute("status");
+  if (status != null) {
+%>
+  <input type="hidden" id="status" value="<%= status %>">
+<%
+  }
+%>
+	
     <header class="header">
         <nav class="navbar">
             <a href="#">Home</a>
@@ -87,6 +99,13 @@
                     </div>
                 </form>
             </div>
+            
+            <script type="text/javascript">
+    	var status = document.getElementById("status").value;
+    	if(status == "success"){
+    		swal("Congrats", "Your Account successfully register", "success");
+    	}
+    </script>
 
             <div class="form-box register">
                 <form action="UserRegister" method="post">
@@ -130,6 +149,13 @@
             </div>
         </div>
     </div>
+    
+    <script type="text/javascript">
+    	var status = document.getElementById("status").value;
+    	if(status == "failed"){
+    		swal("Sorry", "Wrong Username or Password", "failed");
+    	}
+    </script>
 
     <script src="index.js"></script>
     

@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 
 <%@ page import="java.sql.*" %>
-<%@ page import="DaoPackage.CartItemDAO" %>
+
 <%@page import="java.util.List"%>
 <%@ page import="EntPackage.*" %>
 
@@ -22,7 +22,6 @@
   </head>
   <body>
   
-
 
 	    <section class="container">
 	      
@@ -123,8 +122,12 @@
 	    	            <td><%= productPrice %></td>
 	    	            <td><%= productImage %></td>
 	    	            <td>
-	    	            
-	    	              <a href="" class="btn btn-danger btn-sm delete">Edit</a>
+	    	            	
+	    	            <form action="updateProduct" method="post">
+	    	              <input type="hidden" name="productID" value="<%= productID %>">
+	    	              <input type="submit" value="Edit" name="updateProduct" class="btn btn-danger btn-sm delete">
+	    	              
+	    	            </form>
 	    	              
 	    	              <form action="deleteProduct" method="get">
 	    	              <a href="deleteProduct?productID=<%= productID %>" class="btn btn-warning btn-sm edit">Delete</a>

@@ -2,6 +2,8 @@ package Servlet;
 
 import java.io.*;
 import java.sql.*;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +22,7 @@ public class UserLogin extends HttpServlet {
   int userID = 0;
   boolean check = false;
   
+  RequestDispatcher dispatcher = null;
   try {
     Class.forName("com.mysql.jdbc.Driver");
     Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/enterprise", "root", "root");
@@ -43,10 +46,12 @@ public class UserLogin extends HttpServlet {
     if (check == true)
       response.sendRedirect( "showProducts.jsp?userID=" + userID);
     
-    else if (check == false)
-      response.sendRedirect("loginRegister.jsp");
+    else if (check == false) {
+      request.setAttribute("status", "failed");
+      dispatcher = request.getRequestDispatcher("loginRegister.jsp");
   }
-  catch(Exception e2) {
+  dispatcher.forward(request, response);
+  }catch(Exception e2) {
     System.out.println(e2);
   }
   out.close();

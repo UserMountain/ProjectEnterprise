@@ -171,6 +171,7 @@ public class Receipt extends HttpServlet {
             out.println("      <span class=\"separator\"></span>");
             out.println("      <div class=\"right\">");
             out.println("        <p>Have a nice days!</p>");
+            out.println("        <a href=\"Nav_bar.jsp?userID=" + userID + "\" class=\"btn-back\">Back to Dashboard</a>");
             out.println("      </div>");
             out.println("    </div>");
             out.println("  </div>");

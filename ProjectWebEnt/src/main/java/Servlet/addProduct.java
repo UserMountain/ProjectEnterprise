@@ -47,7 +47,7 @@ public class addProduct extends HttpServlet {
             conn.close();
 
             // Redirect the user to a confirmation page or cart summary page.
-            response.sendRedirect("staffDashboard.jsp");
+            response.sendRedirect("AdminCRUD.jsp");
         } catch (SQLException e) {
             e.printStackTrace();
             // Handle database errors

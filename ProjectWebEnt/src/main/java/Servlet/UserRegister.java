@@ -2,6 +2,8 @@ package Servlet;
 
 import java.io.*;
 import java.sql.*;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,7 +26,8 @@ public class UserRegister extends HttpServlet {
         String password = request.getParameter("userPassword");
 
         // Validate the form data (You can add more validation if needed)
-
+        RequestDispatcher dispatcher = null;
+        
         try {
         	Class.forName("com.mysql.jdbc.Driver");  
             // Establish a database connection
@@ -47,7 +50,11 @@ public class UserRegister extends HttpServlet {
             connection.close();
 
             // Redirect to a success page or show a success message
-            response.sendRedirect("loginRegister.jsp"); // Replace "success.jsp" with your desired success page
+            //dispatcher = request.getRequestDispatcher("loginRegister.jsp");
+            request.setAttribute("status", "success");
+            //response.sendRedirect("loginRegister.jsp"); // Replace "success.jsp" with your desired success page
+            dispatcher = request.getRequestDispatcher("loginRegister.jsp");
+            dispatcher.forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
             // Handle database connection or insertion error here
